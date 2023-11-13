@@ -1,0 +1,56 @@
+@@include('html/_header.htm',{
+"title":"Страница не найдена",
+"modifierClass":"page-404"
+})
+<main class="page">
+   <div class="page__container">
+      @@include('html/_breadcrumbs.htm',{})
+      <h1 class="page__title">ОШИБКА 404</h1>
+      <div class="page__text">К сожалению, запрашиваемая вами страница не найдена на сайте нашей компании</div>
+   </div>
+
+   <div class="page-form">
+      <!-- Такая же форма будет ещё на странице контактов, 
+      отличаться будет количеством инпутов и описание (page-form__descr) другое будет -->
+      <div class="page-form__container">
+         <div class="page-form__grid">
+            <div class="page-form__content">
+               <h3 class="page-form__title">
+                  <span>Требуется</span>
+                  <span>помощь</span>
+                  <span>в подборе?</span>
+               </h3>
+               <div class="page-form__text">Поможем оформить и проконсультируем</div>
+            </div>
+            <form action="" class="page-form__form form" data-parsley-validate="" data-parsley-trigger="change">
+               <div class="form__line">
+                  <label for="pageFormUserName" class="form__label">Ваше имя *</label>
+                  <input required id="pageFormUserName" type="text" name="user" class="form__input">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="pageFormUserPhone" class="form__label">Контактный телефон *</label>
+                  <input required id="pageFormUserPhone" type="tel" name="tel" class="form__input js_phone">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="pageFormUserText" class="form__label">Комментарий</label>
+                  <textarea id="pageFormUserText" autocomplete="off" name="" placeholder="" class="form__txt"></textarea>
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__footer">
+                  <button type="submit" class="form__button btn-border btn-border_white">Отправить</button>
+                  <div class="form__consent">Отправляя данные, я даю свое <a href="" class="form__consent-link">согласие на обработку перс. данных</a></div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

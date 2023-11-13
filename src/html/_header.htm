@@ -10,11 +10,91 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div class="wrapper">
-		<header class="header">
+	<div class="wrapper @@modifierClass">
+		<header class="header" data-scroll="300">
 			<div class="header__container">
+				<div class="header__grid">
+					<a href="" class="header__logo"><img src="@img/logo.svg" alt=""></a>
+					<div class="header__menu menu">
+						<button type="button" class="menu__icon icon-menu"><span></span></button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item menu__item_dropdown">
+									<span class="menu__dropdown">Покупателям
+										<svg class="menu__dropdown-arrow">
+											<use xlink:href="img/icons/icons.svg#arrow-menu-dropdown"></use>
+										</svg>
+									</span>
+									<div class="menu__dropdown-chunk">
+										<a href="" class="menu__link">Доставка и оплата</a>
+										<a href="" class="menu__link">Обмен и возврат</a>
+										<a href="" class="menu__link">Вопросы и ответы</a>
+										<a href="" class="menu__link">Как заказать</a>
+									</div>
+								</li>
+								<li class="menu__item"><a href="" class="menu__link">Бренды</a></li>
+								<li class="menu__item"><a href="" class="menu__link">О компании</a></li>
+								<li class="menu__item"><a href="" class="menu__link">Контакты</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="header__contacts" data-da=".menu__body, 991.98, first">
+						<a href="tel:88002295951" class="header__link-phone">8 800 229-59-51</a>
+						<button type="button" data-popup="#callback" class="header__callback-btn">
+							<img src="@img/icons/header-phone-red.svg" alt="">
+							<span>Заказать звонок</span>
+						</button>
+					</div>
+					<button type="button" class="header__search" data-popup="#search">
+						<span class="header__search-text">Поиск по товарам</span>
+						<svg class="header__search-icon">
+							<use xlink:href="img/icons/icons.svg#icon-search"></use>
+						</svg>
+					</button>
+					<div class="header__nav-chunk">
+						<a href="" class="header__nav-btn">
+							<svg class="header__nav-icon">
+								<use xlink:href="img/icons/icons.svg#icon-phone-header"></use>
+							</svg>
+						</a>
+						<a href="" class="header__nav-btn">
+							<svg class="header__nav-icon">
+								<use xlink:href="img/icons/icons.svg#icon-favorites"></use>
+							</svg>
+							<span class="header__nav-btn-count">3</span>
+						</a>
+						<a href="" class="header__nav-btn">
+							<svg class="header__nav-icon">
+								<use xlink:href="img/icons/icons.svg#icon-cabinet"></use>
+							</svg>
+						</a>
+						<a href="" class="header__nav-btn">
+							<svg class="header__nav-icon">
+								<use xlink:href="img/icons/icons.svg#icon-basket"></use>
+							</svg>
+							<span class="header__nav-btn-count">5</span>
+						</a>
+					</div>
+				</div>
 			</div>
+			<button class="sidebar-catalog-btn js-open-sidebar-catalog">
+
+				<div class="sidebar-catalog-btn__icon-wrapper">
+					<svg class="sidebar-catalog-btn__icon">
+						<use xlink:href="img/icons/icons.svg#logo-sidebar-catalog"></use>
+					</svg>
+					<svg class="sidebar-catalog-btn__icon-close">
+						<use xlink:href="img/icons/icons.svg#icon-close"></use>
+					</svg>
+				</div>
+
+				<span class="sidebar-catalog-btn__text">Каталог</span>
+			</button>
 		</header>
+		@@include('_sidebar-catalog.htm',{})

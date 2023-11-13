@@ -1,0 +1,27 @@
+<div class="product-card @@classes"> <!-- Классы hit или sale добавляются если нужно повесить лейбл "Хит" или "Акция" -->
+   <a href="" class="product-card__link">
+      <div class="product-card__image-ibg product-card__image-ibg_contain"><img src="@@image" alt="" loading="lazy"></div>
+      <div class="product-card__info">
+         <div class="product-card__name">@@name</div>
+         <div class="product-card__article">Артикул 57315</div>
+         <div class="product-card__prices">
+            <span class="product-card__price">@@price</span>
+            <s class="product-card__old-price">@@oldPrice</s>
+         </div>
+      </div>
+   </a>
+   <div class="product-card__footer">
+      <div data-quantity class="quantity">
+         <button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+         <div class="quantity__input">
+            <input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+         </div>
+         <button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+      </div>
+      <a href="" class="product-card__btn-basket btn-border btn-border_black">@@link</a>
+   </div>
+   <button class="product-card__btn-favorites @@active"> <!-- Добавить класс _active если добавили в избранное, Убрать класс если убрали из избранного -->
+      <img src="@img/icons/favorites-1.svg" alt="">
+      <img src="@img/icons/favorites-2.svg" alt="">
+   </button>
+</div>

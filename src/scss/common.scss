@@ -1,1 +1,294 @@
 // Заголовки, общие БЄМ блоки и проче...
+
+.page {
+
+   // .page__title
+
+   &__title {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: rem(28);
+
+      .page-left-margin & {
+         padding-left: rem(320);
+
+         @media (max-width:$laptopL) {
+            padding-left: rem(290);
+         }
+
+         @media (max-width:$laptop) {
+            padding-left: 0;
+         }
+      }
+
+      @media (max-width:$mobile) {
+         text-align: left;
+         font-size: 26px;
+         margin-bottom: rem(20);
+      }
+
+      &.order-success {
+         display: flex;
+         gap: 36px;
+
+         &::after {
+            content: '';
+            width: 38px;
+            height: 30px;
+            display: block;
+            background: url(../img/icons/popup__icon.svg) center center / contain no-repeat
+         }
+      }
+   }
+
+   // .page__text
+
+   &__text {
+      font-size: 18px;
+      line-height: 26px;
+   }
+}
+
+.page-form {
+   padding-top: rem(90);
+   margin-bottom: rem(130);
+
+   @media (max-width:$laptopL) {
+      margin-bottom: rem(70);
+   }
+
+   @media (max-width:$laptop) {
+      padding-top: rem(80);
+   }
+
+   @media (max-width:$mobile) {
+      padding-top: rem(40);
+      margin-bottom: rem(40);
+   }
+
+   // .page-form__container
+
+   &__container {
+      @media (max-width:$mobileMiddle) {
+         padding: 0;
+      }
+   }
+
+   // .page-form__grid
+
+   &__grid {
+      background: url(../img/page-form-bg.png) no-repeat bottom right;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: rem(70) rem(0) rem(75) rem(130);
+      @include adaptiveValue("padding-right", 425, 180, 0, 1920, 1440);
+
+      @media (max-width:$laptopL) {
+         padding-left: rem(50);
+      }
+
+      @media (max-width:$laptop) {
+         padding-right: rem(95);
+      }
+
+      @media (max-width:$tablet) {
+         padding: rem(40) rem(60);
+         padding-left: rem(30);
+         gap: 20px;
+      }
+
+      @media (max-width:$mobile) {
+         grid-template-columns: 1fr;
+         gap: 34px;
+         background: var(--bg-black);
+         padding: rem(20);
+      }
+   }
+
+   // .page-form__content
+
+   &__content {}
+
+   // .page-form__title
+
+   &__title {
+      margin-bottom: rem(28);
+      color: var(--red-main);
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 60px;
+
+      @media (max-width:$laptop) {
+         font-size: 36px;
+         line-height: 40px;
+         margin-bottom: rem(22);
+      }
+
+      @media (min-width:$tablet) {
+         span {
+            display: block;
+
+            &:nth-child(2) {
+               padding-left: rem(17);
+            }
+
+            &:nth-child(3) {
+               padding-left: rem(33);
+            }
+         }
+      }
+   }
+
+   // .page-form__text
+
+   &__text {
+      color: var(--text-white);
+      max-width: 217px;
+      line-height: 28px;
+      margin-left: rem(102);
+
+      @media (max-width:$tablet) {
+         margin: 0;
+      }
+   }
+
+   // .page-form__form
+
+   &__form {
+      max-width: 458px;
+
+      @media (max-width:$mobile) {
+         max-width: 100%;
+      }
+
+      .form {
+
+         // .form__line
+
+         &__line {}
+
+         // .form__label
+
+         &__label {}
+
+         // .form__input
+
+         &__input {}
+
+         // .form__clear-svg
+
+         &__clear-svg {}
+
+         // .form__txt
+
+         &__txt {
+            min-height: 87px;
+         }
+
+         // .form__footer
+
+         &__footer {}
+
+         // .form__button
+
+         &__button {
+            flex: 0 0 160px;
+         }
+
+         // .form__consent
+
+         &__consent {}
+
+         // .form__consent-link
+
+         &__consent-link {}
+      }
+   }
+}
+
+//#region Стили кнопок
+
+.btn-border {
+   font-size: 16px;
+   line-height: 18px;
+   font-weight: 600;
+   padding: 0 rem(20);
+   white-space: nowrap;
+   height: 48px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   border-image-slice: 23 27 24 29;
+   border-image-width: 20px 20px 20px 20px;
+   border-image-outset: 0px 0px 0px 0px;
+   border-image-repeat: stretch stretch;
+   border-image-source: url("../img/buttons/border-red.svg");
+   border-style: solid;
+
+   &:hover {
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+   }
+
+   // .btn_red
+
+   &_red {
+      border-image-source: url("../img/buttons/border-red.svg");
+   }
+
+   // .btn-border_white
+
+   &_black {
+      border-image-source: url("../img/buttons/border-black.svg");
+   }
+
+   // .btn-border_white
+
+   &_white {
+      color: var(--text-white);
+      border-image-source: url("../img/buttons/border-white.svg");
+
+      &:hover {
+         text-shadow: 6px 6px 5px rgb(255 255 255 / 60%);
+      }
+   }
+}
+
+.btn {
+   --notchSize: 20px;
+   padding: rem(15) rem(30) rem(16) rem(24);
+   position: relative;
+   font-size: 16px;
+   line-height: 18px;
+   font-weight: 600;
+   border-radius: 5px;
+   transition: all 0.3s;
+   clip-path:
+      polygon(0% 0px,
+         0 0%,
+         100% 0%,
+         100% 0%,
+         100% calc(100% - var(--notchSize)),
+         calc(100% - var(--notchSize)) 100%,
+         0 100%,
+         0% 0);
+
+   // .btn_grey
+
+   &_grey {
+      background: var(--bg-grey-light);
+   }
+
+   // .btn_red
+
+   &_red {
+      color: var(--text-white);
+      background: var(--red-main);
+
+      &:hover {
+         background: var(--red-main-hover);
+      }
+   }
+}
+
+//#endregion

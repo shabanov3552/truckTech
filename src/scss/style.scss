@@ -18,26 +18,24 @@
 // ============================================================================================================================================================================================================================================================================================================================================================================================
 
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
-$fontFamily: "";
+$fontFamily: "Montserrat";
 $fontSize: rem(20); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
-$mainColor: #000; // Цвет шрифта по умолчанию
+$mainColor: var(--text-black); // Цвет шрифта по умолчанию
 
-// Палитра цветов
-// @import "base/colors-palette";
 
 // Настройки адаптивной сетки ===============================================================================================================================================================================================================================================================================================
 
 // Минимальная ширина страницы
-$minWidth: 320;
+$minWidth: 375;
 // Ширина полотна (макета)
 $maxWidth: 1920;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1170;
+$maxWidthContainer: 1600;
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
-$containerPadding: 30;
+$containerPadding: 40;
 
 // Ширина срабатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding;
@@ -45,7 +43,7 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 // Брейк-поинты
 $pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
 $laptopL: em(1439.98);
-$laptop: em(1280.98);
+$laptop: em(1279.98);
 $tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
 $mobile: em(767.98); // Телефоны L
 $mobileMiddle: em(578.98); // Телефоны L
@@ -56,6 +54,8 @@ $mobileSmall: em(479.98); // Телефоны S
 // 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
 $responsiveType: 1;
 
+// css переменные
+@import "base/variables";
 // ============================================================================================================================================================================================================================================================================================================================================================================================
 // ============================================================================================================================================================================================================================================================================================================================================================================================
 
@@ -83,6 +83,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+	padding-left: var(--left-cat-btn);
 
 	@supports (overflow: clip) {
 		overflow: clip;
@@ -99,6 +100,14 @@ body {
 	}
 }
 
+.page {
+	padding-top: calc(51px + var(--header-height));
+
+	@media (max-width:$tablet) {
+		padding-top: rem(25);
+	}
+}
+
 // Ограничивающий контейнер ======================================================================================================================================================================================================================
 
 /*
@@ -112,20 +121,42 @@ body {
 	// Отзывчивая
 	[class*="__container"] {
 		@if ($maxWidthContainer>0) {
-			max-width: rem($containerWidth);
-			margin: 0 auto;
-		}
+			// max-width: rem($containerWidth);
+			// margin: 0 auto;
+			@include adaptiveValue("padding-left", 85, 54, 0, 1920, $containerWidth);
+			@include adaptiveValue("padding-right", 85, 40, 0, 1920, $containerWidth);
+			// padding: 0 rem(85);
 
-		@if ($containerPadding>0) {
-			@if ($maxWidthContainer>0) {
-				padding: 0 rem(math.div($containerPadding, 2));
+			@media (max-width:$pc) {
+				padding-left: rem(55);
+				@include adaptiveValue("padding-right", 40, 40, 0, $containerWidth, 1280);
 			}
 
-			@else {
-				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
-				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+			@media (max-width:$laptop) {
+				@include adaptiveValue("padding-left", 40, 30, 0, 1280, 992);
+				@include adaptiveValue("padding-right", 40, 30, 0, 1280, 992);
+			}
+
+			@media (max-width:$tablet) {
+				padding: 0 rem(30);
+			}
+
+			@media (max-width:$mobileMiddle) {
+				padding: 0 rem(20);
 			}
 		}
+
+		// @if ($containerPadding>0) {
+		// 	@if ($maxWidthContainer>0) {
+		// 		padding: 0 rem(math.div($containerPadding, 2));
+
+		// 	}
+
+		// 	@else {
+		// 		@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+		// 		@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+		// 	}
+		// }
 	}
 }
 
@@ -173,6 +204,12 @@ body {
 // Подключение стилей отдельных блоков
 @import "header";
 @import "footer";
+@import "sidebar-catalog";
+@import "breadcrumbs";
+@import "base/pagging";
+@import "product-card";
+@import "product-slider";
 
 // Подключение стилей отдельных страниц
 @import "home";
+@import "catalog";

@@ -2,7 +2,7 @@
 	position: relative;
 
 	&:not(:last-child) {
-		margin-bottom: em(5);
+		padding-bottom: em(5);
 	}
 
 	// .checkbox__input
@@ -12,12 +12,23 @@
 		height: 0;
 		opacity: 0;
 
-		&:focus-visible+.checkbox__label:before {
-			box-shadow: 0 0 5px #000;
+		// &:focus+.checkbox__label:before {
+		// 	box-shadow: 0 0 5px #000;
+		// }
+		@media (any-hover:hover) {
+
+			&:hover+.checkbox__label:before {
+				background: url('@img/icons/check-black.svg') center center no-repeat;
+			}
+
+			&:checked:hover+.checkbox__label:before {
+				opacity: 0.5;
+			}
 		}
 
 		&:checked+.checkbox__label:before {
-			background: #000;
+			background: #4C4C4C url('@img/icons/check.svg') center center no-repeat;
+			box-shadow: none;
 		}
 	}
 
@@ -25,21 +36,92 @@
 	&__label {
 		cursor: pointer;
 		display: inline-flex;
+		align-items: center;
 		position: relative;
-		gap: 10px;
+		gap: 8px;
 
 		&:before {
 			content: "";
 			align-self: flex-start;
-			flex: 0 0 20px;
-			width: 20px;
-			height: 20px;
-			border: 1px solid #a7a9ac;
+			flex: 0 0 24px;
+			width: 24px;
+			height: 24px;
+			background: #FFFFFF;
+			border: 1px solid rgba(0, 0, 0, 0.230742);
+			box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.4);
+			border-radius: 5px;
 		}
 	}
 
 	// .checkbox__text
 	&__text {
-		align-self: center;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: #5B5B5B;
+	}
+
+	// .checkbox_switch
+
+	&_switch {
+		.filters & {
+			margin-bottom: rem(40);
+		}
+
+		.checkbox__input {
+			&:checked+.checkbox__label:before {
+				background: #979797;
+			}
+
+			&:checked+.checkbox__label:after {
+				background: #fff;
+				right: 5px;
+			}
+
+			@media (any-hover:hover) {
+				&:hover+.checkbox__label:before {
+					background: none;
+				}
+
+				&:checked:hover+.checkbox__label:before {
+					opacity: 1;
+					background: #979797;
+				}
+			}
+		}
+
+		.checkbox__label {
+			flex-direction: row-reverse;
+
+			&::after {
+				content: '';
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				background: #979797;
+				border-radius: 50%;
+				right: 28px;
+				transition: all 0.3s ease 0s;
+				top: 5px;
+			}
+
+			&::before {
+				transition: all 0.3s ease 0s;
+				content: '';
+				width: 48px;
+				height: 24px;
+				flex: 0 0 48px;
+				border: 2px solid #979797;
+				border-radius: 15px;
+				box-shadow: none;
+			}
+		}
+
+		.checkbox__text {
+			font-weight: 600;
+			font-size: 17px;
+			line-height: 21px;
+			color: #000;
+		}
 	}
 }

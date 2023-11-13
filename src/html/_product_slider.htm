@@ -1,0 +1,115 @@
+<div class="product-slider">
+   <div class="product-slider__container">
+      <div class="product-slider__header">
+         <img src="@img/icons/pr-sl-head-icon.svg" alt="">
+         <div class="product-slider__title">@@title</div>
+         <img src="@img/icons/pr-sl-head-icon.svg" alt="">
+      </div>
+   </div>
+   <div class="product-slider__container">
+      <div class="product-slider__nav-btns">
+         <button type="button" class="product-slider__swiper-button swiper-button-prev">
+            <svg class="product-slider__button-svg">
+               <use xlink:href="img/icons/icons.svg#arrow-main-slider-left"></use>
+            </svg>
+         </button>
+         <button type="button" class="product-slider__swiper-button swiper-button-next">
+            <svg class="product-slider__button-svg">
+               <use xlink:href="img/icons/icons.svg#arrow-main-slider-right"></use>
+            </svg>
+         </button>
+      </div>
+      <div class="product-slider__slider swiper"> <!-- Оболочка слайдера -->
+         <div class="product-slider__wrapper swiper-wrapper"> <!-- Двигающееся часть слайдера -->
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-1.png",
+               "name":"Мокасины женские Evita",
+               "price":"4 390 ₽",
+               "oldPrice":"",
+               "discont":"",
+               "link":"В корзину",
+               "active":""
+               })
+            </div>
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-2.png",
+               "name":"Туфли женские Madella",
+               "price":"5 990 ₽",
+               "oldPrice":"5 990 ₽",
+               "discont":"-30%",
+               "link":"Выбрать размер",
+               "active":"_active"
+               })
+            </div>
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-3.png",
+               "name":"Туфли женские Cavaletto",
+               "price":"5 590 ₽",
+               "oldPrice":"",
+               "discont":"",
+               "link":"В корзину",
+               "active":""
+               })
+            </div>
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-4.png",
+               "name":"Кроссовки женские PATROL",
+               "price":"4 390 ₽",
+               "oldPrice":"",
+               "discont":"",
+               "link":"Выбрать размер",
+               "active":""
+               })
+            </div>
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-1.png",
+               "name":"Мокасины женские Evita",
+               "price":"4 390 ₽",
+               "oldPrice":"",
+               "discont":"",
+               "link":"В корзину",
+               "active":""
+               })
+            </div>
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-2.png",
+               "name":"Туфли женские Madella",
+               "price":"5 990 ₽",
+               "oldPrice":"5 990 ₽",
+               "discont":"-30%",
+               "link":"Выбрать размер",
+               "active":""
+               })
+            </div>
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-3.png",
+               "name":"Туфли женские Cavaletto",
+               "price":"5 590 ₽",
+               "oldPrice":"",
+               "discont":"",
+               "link":"В корзину",
+               "active":""
+               })
+            </div>
+            <div class="product-slider__slide swiper-slide"> <!-- Слайд -->
+               @@include('_product-card.htm',{
+               "image":"img/products/pd-c-4.png",
+               "name":"Кроссовки женские PATROL",
+               "price":"4 390 ₽",
+               "oldPrice":"",
+               "discont":"",
+               "link":"Выбрать размер"
+               })
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>

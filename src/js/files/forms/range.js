@@ -1,42 +1,83 @@
 // Подключение из node_modules
 import * as noUiSlider from 'nouislider';
 
-// Подключение стилей из scss/base/forms/range.scss 
+// Подключение стилей из scss/base/forms/range.scss
 // в файле scss/forms/forms.scss
 
 // Подключение cтилей из node_modules
 // import 'nouislider/dist/nouislider.css';
 
-export function rangeInit() {
-	const priceSlider = document.querySelector('#range');
-	if (priceSlider) {
-		let textFrom = priceSlider.getAttribute('data-from');
-		let textTo = priceSlider.getAttribute('data-to');
-		noUiSlider.create(priceSlider, {
-			start: 0, // [0,200000]
-			connect: [true, false],
+export function rangeInit(rangeSlider) {
+	if (rangeSlider) {
+		let priceCnt = rangeSlider.closest('.price')
+		let textFrom = parseInt(rangeSlider.getAttribute('data-from'));
+		let textTo = parseInt(rangeSlider.getAttribute('data-to'));
+		const input0 = priceCnt.querySelector('.js_input-from');
+		const input1 = priceCnt.querySelector('.js_input-to');
+		const inputs = [input0, input1];
+
+		let start = [textFrom, textTo]
+
+		if (input0.value.length) {
+			var current = parseFloat(input0.value.trim())
+			if (current > textFrom) {
+				start[0] = current
+			}
+		}
+
+		if (input1.value.length) {
+			var current = parseFloat(input1.value.trim())
+			if (current < textTo) {
+				start[1] = current
+			}
+		}
+
+		noUiSlider.create(rangeSlider, {
+			start,
+			connect: true,
 			range: {
-				'min': [0],
-				'max': [200000]
+				'min': [textFrom],
+				'max': [textTo]
+			}
+		})
+
+
+		rangeSlider.noUiSlider.on('update', function (values, handle) {
+			inputs[handle].value = Math.round(values[handle]);
+		});
+
+		var skipRecursiveBackward = false
+
+		rangeSlider.noUiSlider.on('end', function (values, handle) {
+			if (input0 && input1) {
+				skipRecursiveBackward = true
+				inputs[handle].dispatchEvent((new Event('change')))
+				inputs[handle].dispatchEvent((new Event('keyup')))
 			}
 		});
-		/*
-		const priceStart = document.getElementById('price-start');
-		const priceEnd = document.getElementById('price-end');
-		priceStart.addEventListener('change', setPriceValues);
-		priceEnd.addEventListener('change', setPriceValues);
-		*/
-		function setPriceValues() {
-			let priceStartValue;
-			let priceEndValue;
-			if (priceStart.value != '') {
-				priceStartValue = priceStart.value;
-			}
-			if (priceEnd.value != '') {
-				priceEndValue = priceEnd.value;
-			}
-			priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
-		}
+
+		const setRangeSlider = (i, value) => {
+			let arr = [null, null];
+			arr[i] = value;
+
+
+			rangeSlider.noUiSlider.set(arr);
+		};
+
+		inputs.forEach((el, index) => {
+			el.addEventListener('change', (e) => {
+				if (skipRecursiveBackward) {
+					skipRecursiveBackward = false
+					return
+				}
+				setRangeSlider(index, e.currentTarget.value);
+			});
+		});
 	}
 }
-rangeInit();
+
+
+const rangesSlidersFilters = document.querySelectorAll('#range');
+rangesSlidersFilters.forEach(range => {
+	rangeInit(range);
+});

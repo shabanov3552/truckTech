@@ -1,19 +1,141 @@
 //<FORM>
 // Снипет (HTML):
+
+
 .form {
-	&__row {
-	}
-	&__column {
-	}
+
+	// .form__line
+
 	&__line {
+		position: relative;
+		margin-bottom: rem(32);
+
+		&._form-focus {
+			.form__label {
+				top: -20px;
+				left: 0;
+				font-size: 12px;
+				line-height: 22px;
+			}
+		}
 	}
+
+	// .form__label
+
+	&__label {
+		transition: all 0.3s ease 0s;
+		position: absolute;
+		top: 13px;
+		left: 16px;
+		color: rgba(0, 0, 0, 0.604535);
+		font-size: 18px;
+		line-height: 22px;
+		pointer-events: none;
+
+		.has-error & {
+			top: 35px;
+		}
+	}
+
+	// .form__input
+	// .form__txt
+
+	&__txt,
 	&__input {
+		background: #FFFFFF;
+		border: 1px solid rgba(0, 0, 0, 0.230742);
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+		border-radius: 5px;
+		height: 48px;
+		padding: rem(16) rem(32) rem(16) rem(16);
+		width: 100%;
+
+		.has-error & {
+			border: 2px solid var(--red-main);
+		}
+
+		&.parsley-error {
+			border: 2px solid var(--red-main);
+		}
 	}
-	&__button {
+
+	// .form__input
+
+	&__input {}
+
+	// .form__txt
+
+	&__txt {}
+
+
+	// .form__clear-svg
+
+	&__clear-svg {
+		cursor: pointer;
+		position: absolute;
+		width: 32px;
+		height: 32px;
+		padding: rem(8);
+		top: 8px;
+		right: 4px;
+		display: none;
+		transition: all 0.3s ease 0s;
+		border-radius: 4px;
+
+		&:hover {
+			background: rgba(61, 74, 98, 0.07);
+
+			use {
+				fill: #AA2040;
+			}
+		}
+
+		&._active {
+			display: block;
+		}
+
+		use {
+			fill: #8A8A8A;
+		}
 	}
-	&__error {
+
+	// .form__footer
+
+	&__footer {
+		display: flex;
+		gap: 25px;
+	}
+
+	// .form__button
+
+	&__button {}
+
+	// .form__consent
+
+	&__consent {
+		color: var(--text-white);
+		font-size: 12px;
+		line-height: 18px;
+		opacity: 0.5;
+	}
+
+	// .form__consent-link
+
+	&__consent-link {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
+
+.parsley-errors-list {
+	padding: rem(10) 0;
+	color: var(--red-main);
+	margin-bottom: rem(-20);
+}
+
 //</FORM>
 
 // <BUTTONS>
@@ -22,19 +144,19 @@
 
 // <INPUTS>
 // Снипет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Снипет (HTML): chk
-// @import "checkbox";
+@import "checkbox";
 
 // <RADIO>
 // Снипет (HTML): opt
-// @import "radio";
+@import "radio";
 
 // <SELECT>
 // Снипет (HTML): sel
-// @import "select";
+@import "select";
 
 // <RATING>
 // Снипет (HTML): rating
@@ -42,11 +164,11 @@
 
 // <QUANTITY>
 // Снипет (HTML): qa
-// @import "quantity";
+@import "quantity";
 
 // <RANGE>
 // Снипет (HTML):
-// @import "range";
+@import "range";
 
 // <CALENDAR>
 // Снипет (HTML):
