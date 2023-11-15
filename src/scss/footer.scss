@@ -1,7 +1,24 @@
 //====================================================================================================
 
 .footer {
+   margin-top: rem(140);
    color: var(--text-white);
+
+   @media (max-width:$laptopL) {
+      margin-top: rem(100);
+   }
+
+   @media (max-width:$laptop) {
+      margin-top: rem(85);
+   }
+
+   @media (max-width:$mobile) {
+      margin-top: rem(60);
+   }
+
+   @media (max-width:$mobileSmall) {
+      margin-top: rem(15);
+   }
 
    .menu-open & {
       position: relative;
@@ -212,6 +229,10 @@
    &__form {
       display: flex;
       gap: 26px;
+
+      .form__line {
+         margin: 0;
+      }
 
       @media (max-width:$laptop) {
          flex-direction: column;

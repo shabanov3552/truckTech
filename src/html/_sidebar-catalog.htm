@@ -1,20 +1,21 @@
 <div class="sidebar-catalog">
-   <div class="sidebar-catalog__wrapper">
-      <div class="sidebar-catalog__body">
 
-         <div class="sidebar-catalog__header"> <!-- sidebar-catalog__header виден только на мобилках -->
-            <div class="sidebar-catalog__title">Каталог</div>
-            <button type="button" class="sidebar-catalog__back js-sidebar-catalog-back"> <!-- Только для мобилки -->
-               <svg class="sidebar-catalog__back-svg">
-                  <use xlink:href="@img/icons/icons.svg#arrow-back-sidebar-sidebar-catalog"></use>
-               </svg>
-            </button>
-            <button type="button" class="sidebar-catalog__close js-sidebar-catalog-close"> <!-- Только для мобилки -->
-               <svg class="sidebar-catalog__close-svg">
-                  <use xlink:href="@img/icons/icons.svg#icon-close"></use>
-               </svg>
-            </button>
-         </div>
+   <div class="sidebar-catalog__body">
+
+      <div class="sidebar-catalog__header"> <!-- sidebar-catalog__header виден только на мобилках -->
+         <div class="sidebar-catalog__title">Каталог</div>
+         <button type="button" class="sidebar-catalog__back js-sidebar-catalog-back"> <!-- Только для мобилки -->
+            <svg class="sidebar-catalog__back-svg">
+               <use xlink:href="@img/icons/icons.svg#arrow-back-sidebar-catalog"></use>
+            </svg>
+         </button>
+         <button type="button" class="sidebar-catalog__close js-sidebar-catalog-close"> <!-- Только для мобилки -->
+            <svg class="sidebar-catalog__close-svg">
+               <use xlink:href="@img/icons/icons.svg#icon-close"></use>
+            </svg>
+         </button>
+      </div>
+      <div class="sidebar-catalog__menu-chunk">
          <nav class="sidebar-catalog__menu">
             <a href="" class="sidebar-catalog__link" data-parent="1">
                <svg class="sidebar-catalog__link-svg">
@@ -125,33 +126,84 @@
                <span class="sidebar-catalog__link-span">Система зажигания / накаливания</span>
             </a>
          </nav>
-         <div class="sidebar-catalog__sub-catalog sidebar-sub-catalog">
-            <div class="sidebar-sub-catalog__wrapper">
-               <div data-submenu="1" class="sidebar-sub-catalog__chunk">
-                  <div class="sidebar-sub-catalog__row">
-                     <div class="sidebar-sub-catalog__grid">
-                        <a href="" class="sidebar-sub-catalog__link"></a>
-                        <a href="" class="sidebar-sub-catalog__link"></a>
-                     </div>
-                     <div class="sidebar-sub-catalog__banner">
-                        <a href="" class="sidebar-sub-catalog__banner-ibg"><img src="@img/header/sidebar-sidebar-catalog-banner-1.jpg" alt=""></a>
-                     </div>
+         <div class="sidebar-catalog__hover-rect"></div>
+      </div>
+      <div class="sidebar-catalog__sub-catalog sidebar-sub-catalog">
+         <div class="sidebar-sub-catalog__wrapper">
+            <div data-submenu="1" class="sidebar-sub-catalog__chunk" hidden>
+               <div class="sidebar-sub-catalog__row">
+                  <div class="sidebar-sub-catalog__grid">
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Кабина</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Интерьер</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Оптика</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Бампер</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Крыло</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Капот и крышка багажника</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Остекление</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Зеркала</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Двери</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Замки</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Детали рамы</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Эмблемы</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Решетки радиатора</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Антенны автомобильные</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Брызговики</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Крепления для брызговиков</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Клипсы и пистоны</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Кронштейны брызговиков</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Арки колесные</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Защиты арок колес</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Накладки порогов</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Панели кузова</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Петли буксировочные</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Молдинги</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Дефлекторы воздушные</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Обтекатели</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Прочие детали кузова</a>
+                  </div>
+                  <div class="sidebar-sub-catalog__banner">
+                     <a href="" class="sidebar-sub-catalog__banner-ibg sidebar-sub-catalog__banner-ibg_contain"><img src="@img/sidebar-catalog-banner-1.png" alt=""></a>
                   </div>
                </div>
-               <div data-submenu="2" class="sidebar-sub-catalog__chunk">
-                  <div class="sidebar-sub-catalog__row">
-                     <div class="sidebar-sub-catalog__grid">
-                        <a href="" class="sidebar-sub-catalog__link"></a>
-                        <a href="" class="sidebar-sub-catalog__link"></a>
-                     </div>
-                     <div class="sidebar-sub-catalog__banner">
-                        <a href="" class="sidebar-sub-catalog__banner-ibg"><img src="@img/header/sidebar-sidebar-catalog-banner-2.jpg" alt=""></a>
-                     </div>
+            </div>
+            <div data-submenu="2" class="sidebar-sub-catalog__chunk" hidden>
+               <div class="sidebar-sub-catalog__row">
+                  <div class="sidebar-sub-catalog__grid">
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Селедбно-сцепное устройство</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Захваты седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Клинья седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пальцы седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Подковы седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Подушки седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пружины седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Шкворни седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Опоры седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Шкворни прицепные в сборе</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Плиты опорные шкворней</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Плиты монтажные</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Опоры полуприцепов</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Накладки опорных плит</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Втулки сцепного устройства</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пальцы дышла</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пальцы сцепных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Подушки прицепного устройства</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Комплект монтажный седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты опоры седельных устройств</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты шкворней прицепных</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты опор полуприцепа</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты захвата сцепного устройства</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты пальца сцепного устройства</a>
+                     <a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты крепления сцепного устройства</a>
+                  </div>
+                  <div class="sidebar-sub-catalog__banner">
+                     <a href="" class="sidebar-sub-catalog__banner-ibg sidebar-sub-catalog__banner-ibg_contain"><img src="@img/sidebar-catalog-banner-2.png" alt=""></a>
                   </div>
                </div>
             </div>
          </div>
-
       </div>
+
    </div>
+
 </div>

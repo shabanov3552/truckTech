@@ -50,20 +50,10 @@
 }
 
 .page-form {
-   padding-top: rem(90);
-   margin-bottom: rem(130);
-
-   @media (max-width:$laptopL) {
-      margin-bottom: rem(70);
-   }
-
-   @media (max-width:$laptop) {
-      padding-top: rem(80);
-   }
+   padding: rem(45) 0;
 
    @media (max-width:$mobile) {
-      padding-top: rem(40);
-      margin-bottom: rem(40);
+      padding: rem(15) 0;
    }
 
    // .page-form__container
@@ -77,11 +67,14 @@
    // .page-form__grid
 
    &__grid {
-      background: url(../img/page-form-bg.png) no-repeat bottom right;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       padding: rem(70) rem(0) rem(75) rem(130);
       @include adaptiveValue("padding-right", 425, 180, 0, 1920, 1440);
+
+      @media (min-width:$mobile) {
+         background: url(../img/page-form-bg.png) no-repeat bottom right;
+      }
 
       @media (max-width:$laptopL) {
          padding-left: rem(50);
@@ -279,6 +272,12 @@
       background: var(--bg-grey-light);
    }
 
+   // .grey-dark
+
+   &_grey-dark {
+      background: rgba(0, 0, 0, 0.24);
+   }
+
    // .btn_red
 
    &_red {
@@ -289,6 +288,7 @@
          background: var(--red-main-hover);
       }
    }
+
 }
 
 //#endregion

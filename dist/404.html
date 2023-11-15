@@ -6,13 +6,13 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231114032430">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231115234650">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap&_v=20231114032430" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap&_v=20231115234650" rel="stylesheet">
 </head>
 
 <body>
@@ -74,7 +74,7 @@
 								<use xlink:href="img/icons/icons.svg#icon-cabinet"></use>
 							</svg>
 						</a>
-						<a href="" class="header__nav-btn">
+						<a href="" class="header__nav-btn" data-popup="#basket">
 							<svg class="header__nav-icon">
 								<use xlink:href="img/icons/icons.svg#icon-basket"></use>
 							</svg>
@@ -96,16 +96,15 @@
 
 				<span class="sidebar-catalog-btn__text">Каталог</span>
 			</button>
-		</header>
-		<div class="sidebar-catalog">
-			<div class="sidebar-catalog__wrapper">
+			<div class="sidebar-catalog">
+
 				<div class="sidebar-catalog__body">
 
 					<div class="sidebar-catalog__header"> <!-- sidebar-catalog__header виден только на мобилках -->
 						<div class="sidebar-catalog__title">Каталог</div>
 						<button type="button" class="sidebar-catalog__back js-sidebar-catalog-back"> <!-- Только для мобилки -->
 							<svg class="sidebar-catalog__back-svg">
-								<use xlink:href="img/icons/icons.svg#arrow-back-sidebar-sidebar-catalog"></use>
+								<use xlink:href="img/icons/icons.svg#arrow-back-sidebar-catalog"></use>
 							</svg>
 						</button>
 						<button type="button" class="sidebar-catalog__close js-sidebar-catalog-close"> <!-- Только для мобилки -->
@@ -114,137 +113,189 @@
 							</svg>
 						</button>
 					</div>
-					<nav class="sidebar-catalog__menu">
-						<a href="" class="sidebar-catalog__link" data-parent="1">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-1"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Детали кузова</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="2">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-2"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Седельно-сцепные и сцепные устройства</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-3"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Кондиционирование и отопление</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-4"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Рулевое управление</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-5"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Электрика</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-6"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Система очистки окон и фар</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-7"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Тормозная система</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-8"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Ходовая часть</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-9"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Трансмиссия</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-10"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Сцепление</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-11"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Детали крепежа</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-12"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Автономный отопитель</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-13"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Фильтры</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-14"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Двигатель</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-15"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Система выпуска</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-16"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Топливная система</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-17"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Система охлаждения</span>
-						</a>
-						<a href="" class="sidebar-catalog__link" data-parent="">
-							<svg class="sidebar-catalog__link-svg">
-								<use xlink:href="img/icons/icons.svg#cat-link-icon-18"></use>
-							</svg>
-							<span class="sidebar-catalog__link-span">Система зажигания / накаливания</span>
-						</a>
-					</nav>
+					<div class="sidebar-catalog__menu-chunk">
+						<nav class="sidebar-catalog__menu">
+							<a href="" class="sidebar-catalog__link" data-parent="1">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-1"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Детали кузова</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="2">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-2"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Седельно-сцепные и сцепные устройства</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-3"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Кондиционирование и отопление</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-4"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Рулевое управление</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-5"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Электрика</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-6"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Система очистки окон и фар</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-7"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Тормозная система</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-8"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Ходовая часть</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-9"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Трансмиссия</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-10"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Сцепление</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-11"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Детали крепежа</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-12"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Автономный отопитель</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-13"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Фильтры</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-14"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Двигатель</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-15"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Система выпуска</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-16"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Топливная система</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-17"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Система охлаждения</span>
+							</a>
+							<a href="" class="sidebar-catalog__link" data-parent="">
+								<svg class="sidebar-catalog__link-svg">
+									<use xlink:href="img/icons/icons.svg#cat-link-icon-18"></use>
+								</svg>
+								<span class="sidebar-catalog__link-span">Система зажигания / накаливания</span>
+							</a>
+						</nav>
+						<div class="sidebar-catalog__hover-rect"></div>
+					</div>
 					<div class="sidebar-catalog__sub-catalog sidebar-sub-catalog">
 						<div class="sidebar-sub-catalog__wrapper">
-							<div data-submenu="1" class="sidebar-sub-catalog__chunk">
+							<div data-submenu="1" class="sidebar-sub-catalog__chunk" hidden>
 								<div class="sidebar-sub-catalog__row">
 									<div class="sidebar-sub-catalog__grid">
-										<a href="" class="sidebar-sub-catalog__link"></a>
-										<a href="" class="sidebar-sub-catalog__link"></a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Кабина</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Интерьер</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Оптика</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Бампер</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Крыло</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Капот и крышка багажника</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Остекление</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Зеркала</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Двери</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Замки</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Детали рамы</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Эмблемы</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Решетки радиатора</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Антенны автомобильные</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Брызговики</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Крепления для брызговиков</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Клипсы и пистоны</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Кронштейны брызговиков</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Арки колесные</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Защиты арок колес</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Накладки порогов</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Панели кузова</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Петли буксировочные</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Молдинги</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Дефлекторы воздушные</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Обтекатели</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Прочие детали кузова</a>
 									</div>
 									<div class="sidebar-sub-catalog__banner">
-										<a href="" class="sidebar-sub-catalog__banner-ibg"><picture><source srcset="img/header/sidebar-sidebar-catalog-banner-1.webp" type="image/webp"><img src="img/header/sidebar-sidebar-catalog-banner-1.jpg" alt=""></picture></a>
+										<a href="" class="sidebar-sub-catalog__banner-ibg sidebar-sub-catalog__banner-ibg_contain"><picture><source srcset="img/sidebar-catalog-banner-1.webp" type="image/webp"><img src="img/sidebar-catalog-banner-1.png" alt=""></picture></a>
 									</div>
 								</div>
 							</div>
-							<div data-submenu="2" class="sidebar-sub-catalog__chunk">
+							<div data-submenu="2" class="sidebar-sub-catalog__chunk" hidden>
 								<div class="sidebar-sub-catalog__row">
 									<div class="sidebar-sub-catalog__grid">
-										<a href="" class="sidebar-sub-catalog__link"></a>
-										<a href="" class="sidebar-sub-catalog__link"></a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Селедбно-сцепное устройство</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Захваты седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Клинья седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пальцы седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Подковы седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Подушки седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пружины седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Шкворни седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Опоры седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Шкворни прицепные в сборе</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Плиты опорные шкворней</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Плиты монтажные</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Опоры полуприцепов</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Накладки опорных плит</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Втулки сцепного устройства</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пальцы дышла</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Пальцы сцепных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Подушки прицепного устройства</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Комплект монтажный седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты опоры седельных устройств</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты шкворней прицепных</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты опор полуприцепа</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты захвата сцепного устройства</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты пальца сцепного устройства</a>
+										<a href="" class="sidebar-sub-catalog__link btn btn_grey-dark">Ремкомплекты крепления сцепного устройства</a>
 									</div>
 									<div class="sidebar-sub-catalog__banner">
-										<a href="" class="sidebar-sub-catalog__banner-ibg"><picture><source srcset="img/header/sidebar-sidebar-catalog-banner-2.webp" type="image/webp"><img src="img/header/sidebar-sidebar-catalog-banner-2.jpg" alt=""></picture></a>
+										<a href="" class="sidebar-sub-catalog__banner-ibg sidebar-sub-catalog__banner-ibg_contain"><picture><source srcset="img/sidebar-catalog-banner-2.webp" type="image/webp"><img src="img/sidebar-catalog-banner-2.png" alt=""></picture></a>
 									</div>
 								</div>
 							</div>
@@ -252,8 +303,9 @@
 					</div>
 
 				</div>
+
 			</div>
-		</div>
+		</header>
 		<main class="page">
 			<div class="page__container">
 				<nav class="breadcrumbs">
@@ -393,21 +445,122 @@
 			</div>
 		</footer>
 	</div>
-	<div class="popup-box">
-		<div id="popup" aria-hidden="true" class="popup">
-			<div class="popup__wrapper">
-				<div class="popup__content">
-					<button data-close type="button" class="popup__close">Закрыть</button>
-					<div class="popup__text">
-						Text
-					</div>
+	<div id="popup" aria-hidden="true" class="popup popup_center">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">Закрыть</button>
+				<div class="popup__text">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fugit quaerat itaque omnis vero tempora cupiditate consequatur. Eum soluta architecto unde quibusdam quasi quaerat assumenda! Maiores modi vel suscipit accusamus doloremque impedit, et labore cupiditate excepturi, porro amet reiciendis sed molestiae illum inventore. Deleniti blanditiis molestiae sunt voluptates placeat facilis reprehenderit natus quisquam nulla modi provident rem, totam aliquid officia distinctio quibusdam pariatur. Mollitia, ea itaque laborum iste eaque sit accusamus perspiciatis debitis provident deleniti quasi quis totam vel inventore asperiores fugiat voluptate quo voluptatum eos hic, cum, nisi quidem nemo et. Ea, alias! Nam eos porro illo temporibus soluta!
 				</div>
 			</div>
 		</div>
-
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20231114032430" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="js/app.min.js?_v=20231114032430"></script>
+	<div class="popup-box">
+		<!-- Живой поиск -->
+		<div id="search" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<form action="" class="form search-form">
+						<div class="search-form__top">
+							<div class="form__line search-form__line">
+								<label for="searchForm" class="form__label search-form__label">Поиск по товарам</label>
+								<input autocomplete="off" id="searchForm" type="text" class="search-form__input form__input">
+								<svg class="form__clear-svg search-form__svg">
+									<use xlink:href="img/icons/icons.svg#input_clear"></use>
+								</svg>
+								<img class="search-form__icon" src="img/icons/search-black.svg" alt="">
+							</div>
+							<button data-close type="button" class="popup__close">
+								<svg class="popup__close-svg">
+									<use xlink:href="img/icons/icons.svg#icon-close"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="search-form__center">
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/1b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/1b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм муж утепленный Асгард (куртка и брюки)</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">18000 ₽</div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/2b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/2b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм утепленный "Спектр" с полукомбинезоном</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">19780 ₽</div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/3b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/3b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм муж утепленный Фотон (куртка и полукомбинезон )</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">19780 ₽</div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/4b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/4b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм утепленный "Спектр" с полукомбинезоном</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">4 580 ₽</div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/5b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/5b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм муж утепленный Асгард (куртка и брюки)</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">18000 ₽</div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/6b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/6b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм утепленный "Спектр" с полукомбинезоном</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">19780 ₽</div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/7b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/7b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм муж утепленный Фотон (куртка и полукомбинезон )</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">19780 ₽</div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="search-form__item">
+								<div class="search-form__image-ibg search-form__image-ibg_contain"><picture><source srcset="img/detail-prod/8b.webp" type="image/webp"><img loading="lazy" src="img/detail-prod/8b.jpg" alt=""></picture></div>
+								<div class="search-form__content">
+									<div class="search-form__name">Костюм утепленный "Спектр" с полукомбинезоном</div>
+									<div class="search-form__prices">
+										<div class="search-form__price">4 580 ₽</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="search-form__bottom">
+							<button type="submit" class="form__button search-form__button btn-border btn-border_black">Показать все</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- Живой поиск -->
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20231115234650" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/app.min.js?_v=20231115234650"></script>
 </body>
 
 </html>

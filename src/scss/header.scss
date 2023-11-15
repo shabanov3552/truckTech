@@ -7,13 +7,47 @@
 	background: var(--bg-white);
 	position: relative;
 	z-index: 20;
-
 	position: absolute;
 	top: 0;
 	left: var(--left-cat-btn);
 	right: 0;
 
-	.index-page & {}
+	.index-page & {
+		background: var(--bg-grey);
+		color: var(--text-white);
+
+		.menu-open & {
+			color: var(--text-black);
+		}
+
+		.header__grid {
+			border-bottom: 1px solid var(--bg-grey);
+		}
+
+		.header__nav-icon use {
+			fill: var(--bg-white);
+		}
+
+		.menu__dropdown-arrow use {
+			fill: var(--bg-white);
+		}
+
+		.header__search-icon use {
+			@media (max-width:$tablet) {
+				fill: var(--bg-white);
+			}
+		}
+
+		.icon-menu span,
+		.icon-menu::before,
+		.icon-menu::after {
+			background-color: var(--bg-white);
+
+			.menu-open & {
+				background-color: #000;
+			}
+		}
+	}
 
 	@media (min-width:$tablet) {
 		&._header-scroll {
@@ -24,6 +58,19 @@
 
 			.header__grid {
 				padding: rem(17) 0;
+			}
+
+			.index-page & {
+				background: var(--bg-white);
+				color: var(--text-black);
+
+				.header__nav-icon use {
+					fill: #000;
+				}
+
+				.menu__dropdown-arrow use {
+					fill: #000;
+				}
 			}
 		}
 
@@ -397,6 +444,7 @@
 			.menu__link {
 				transition: background 0.3s ease 0s;
 				padding: rem(10);
+				color: var(--text-black);
 
 				&:hover {
 					background: var(--bg-input-header);

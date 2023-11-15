@@ -28,9 +28,9 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.sw')) { // Указываем скласс нужного слайдера
 		// Создаем слайдер
-		new Swiper('.swiper', { // Указываем скласс нужного слайдера
+		new Swiper('.sw', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
 			modules: [Navigation],
@@ -104,6 +104,93 @@ function initSliders() {
 			on: {
 
 			}
+		});
+	}
+	if (document.querySelector('.product-slider__slider')) { // Указываем скласс нужного слайдера
+		const productSliders = document.querySelectorAll('.product-slider__slider');
+		let count = 1;
+		productSliders.forEach((el, i) => {
+			if (i + 1 === productSliders.length) el.closest('.product-slider').classList.add('last-slider');
+			let className = `product-slider__slider-${count}`;
+			let btnClassName = `product-slider__nav-btns-${count}`;
+			el.closest('.product-slider').querySelector('.product-slider__nav-btns').classList.add(btnClassName);
+			el.classList.add(className);
+			// Создаем слайдер
+			new Swiper('.' + className, { // Указываем скласс нужного слайдера
+				// Подключаем модули слайдера
+				// для конкретного случая
+				modules: [Navigation],
+				observer: true,
+				observeParents: true,
+				slidesPerView: 5,
+				spaceBetween: 0,
+				speed: 300,
+				watchSlidesProgress: true,
+				loop: true,
+				// Кнопки "влево/вправо"
+				navigation: {
+					prevEl: `.${btnClassName} .swiper-button-prev`,
+					nextEl: `.${btnClassName} .swiper-button-next`,
+				},
+				// Брейкпоинты
+
+				breakpoints: {
+					320: {
+						slidesPerView: 1,
+					},
+					600: {
+						slidesPerView: 2,
+					},
+					991.98: {
+						slidesPerView: 3,
+					},
+					1280: {
+						slidesPerView: 4,
+					},
+					1640.98: {
+						slidesPerView: 5,
+					},
+				},
+				// autoHeight: true,
+				//touchRatio: 0,
+				//simulateTouch: false,
+				// loop: true,
+				//preloadImages: false,
+				//lazy: true,
+
+
+				// Эффекты
+				// effect: 'fade',
+				// autoplay: {
+				// 	delay: 3000,
+				// 	disableOnInteraction: false,
+				// },
+
+
+				// Пагинация
+				/*
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				*/
+
+				// Скроллбар
+				/*
+				scrollbar: {
+					el: '.swiper-scrollbar',
+					draggable: true,
+				},
+				*/
+
+
+
+				// События
+				// on: {
+
+				// }
+			});
+			count++;
 		});
 	}
 }

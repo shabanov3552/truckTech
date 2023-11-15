@@ -7,16 +7,21 @@ import { flsModules } from "./modules.js";
 
 document.addEventListener("click", function (e) {
    // открыть модалку каталога
-   if (bodyLockStatus && e.target.closest('.catalog-header__btn')) {
+   if (bodyLockStatus && e.target.closest('.js-open-sidebar-catalog')) {
       bodyLockToggle();
-      document.documentElement.classList.add("catalog-header-open");
-      // document.addEventListener("click", documentActions);
-      // documentActions(e)
+      document.documentElement.classList.toggle("sidebar-catalog-open");
+      if (window.matchMedia("(min-width: 991.98px)").matches && !isMobile.any()) {
+         document.addEventListener("mouseover", sidebarCatalogActions);
+         document.removeEventListener("click", sidebarCatalogActions);
+      } else {
+         document.addEventListener("click", sidebarCatalogActions);
+         document.removeEventListener("mouseover", sidebarCatalogActions);
+      }
    }
    // закрыть модалку каталога
-   if (e.target.closest('.catalog-header__close')) {
-      document.documentElement.classList.remove("catalog-header-open", "sub-menu-open");
+   if (e.target.closest('.js-sidebar-catalog-close')) {
       bodyLockToggle();
+      document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
    }
    // очистка input по клику на крестик
    if (e.target.closest('.form__clear-svg')) {
@@ -44,57 +49,6 @@ document.addEventListener("click", function (e) {
       e.preventDefault()
    }
 });
-//#endregion
-
-//#region Открытие подкатегорий каталога в хедере
-
-document.addEventListener("mouseover", documentActions);
-export function documentActions(e) {
-   if (!e.target.closest('[data-parent]') && !e.target.closest("[data-submenu]")) {
-      document.documentElement.classList.remove('sub-menu-open');
-      document.querySelector('._sub-menu-active') ? document.querySelector('._sub-menu-active').classList.remove('_sub-menu-active') : null;
-      document.querySelector('._sub-menu-open') ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open') : null;
-   }
-
-   if (e.target.closest('[data-parent]')) {
-      const targetElement = e.target.closest('[data-parent]');
-      const subMenuId = targetElement.closest('[data-parent]').dataset.parent ? targetElement.closest('[data-parent]').dataset.parent : null;
-      const subMenu = document.querySelector(`[data-submenu="${subMenuId}"]`);
-      if (subMenu) {
-         const activeLink = document.querySelector('._sub-menu-active');
-         const activeBlock = document.querySelector('._sub-menu-open');
-
-
-         if (activeLink && activeLink !== targetElement) {
-            activeLink.classList.remove('_sub-menu-active');
-            activeBlock.classList.remove('_sub-menu-open');
-            document.documentElement.classList.remove('sub-menu-open');
-         }
-         document.documentElement.classList.add('sub-menu-open');
-         targetElement.classList.add('_sub-menu-active');
-         subMenu.classList.add('_sub-menu-open');
-         // showMore(subMenu.querySelectorAll('[data-showmore]'));
-         e.preventDefault();
-      } else {
-         const activeLink = document.querySelector('._sub-menu-active');
-         const activeBlock = document.querySelector('._sub-menu-open');
-
-
-         if (activeLink) {
-            activeLink.classList.remove('_sub-menu-active');
-            activeBlock.classList.remove('_sub-menu-open');
-            document.documentElement.classList.remove('sub-menu-open');
-         }
-      }
-   }
-   if (e.target.closest('.catalog-header__back')) {
-      document.documentElement.classList.remove('sub-menu-open');
-      document.querySelector('._sub-menu-active') ? document.querySelector('._sub-menu-active').classList.remove('_sub-menu-active') : null;
-      document.querySelector('._sub-menu-open') ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open') : null;
-      e.preventDefault();
-   }
-
-}
 
 //#endregion
 
@@ -308,3 +262,74 @@ window.addEventListener("load", function (e) {
 if (document.querySelector('.order-success')) {
    document.querySelector('.page__title').classList.add('order-success')
 }
+
+//#region hover на ссылках в боковом каталоге
+
+const sidebarCatalogMenuChunk = document.querySelector('.sidebar-catalog__menu-chunk');
+if (sidebarCatalogMenuChunk !== null) {
+   const sidebarCatalogMenu = sidebarCatalogMenuChunk.querySelector('.sidebar-catalog__menu');
+   const sidebarRect = sidebarCatalogMenuChunk.querySelector('.sidebar-catalog__hover-rect')
+   sidebarCatalogMenuChunk.addEventListener('mouseover', (e) => {
+      let target = e.target.closest('.sidebar-catalog__link');
+      if (e.target.classList.contains('sidebar-catalog__link')) {
+         sidebarRect.style.bottom = `${sidebarCatalogMenu.offsetHeight - ((target.offsetTop + target.clientHeight) - sidebarCatalogMenu.scrollTop)}px`
+      }
+   })
+}
+
+//#endregion
+
+//#region Открыть/закрыть боковой каталог
+
+// js-open-sidebar-catalog
+// js-sidebar-catalog-back
+// js-sidebar-catalog-close
+
+function sidebarCatalogActions(e) {
+   if (e.target.closest('[data-parent]')) {
+      const targetElement = e.target.closest('[data-parent]');
+      const subMenuId = targetElement.closest('[data-parent]').dataset.parent ? targetElement.closest('[data-parent]').dataset.parent : null;
+      const subMenu = document.querySelector(`[data-submenu="${subMenuId}"]`);
+      if (subMenu) {
+         const activeLink = document.querySelector('._sub-menu-active');
+         const activeBlock = document.querySelector('._sub-menu-open');
+
+
+         if (activeLink && activeLink !== targetElement) {
+            activeLink.classList.remove('_sub-menu-active');
+            activeBlock.classList.remove('_sub-menu-open');
+            document.documentElement.classList.remove('sidebar-sub-catalog-open');
+         }
+         document.documentElement.classList.add('sidebar-sub-catalog-open');
+         targetElement.classList.add('_sub-menu-active');
+         subMenu.classList.add('_sub-menu-open');
+         // showMore(subMenu.querySelectorAll('[data-showmore]'));
+         e.preventDefault();
+      } else {
+         const activeLink = document.querySelector('._sub-menu-active');
+         const activeBlock = document.querySelector('._sub-menu-open');
+
+
+         if (activeLink) {
+            activeLink.classList.remove('_sub-menu-active');
+            activeBlock.classList.remove('_sub-menu-open');
+            document.documentElement.classList.remove('sidebar-sub-catalog-open');
+         }
+      }
+   }
+   if (e.target.closest('.js-sidebar-catalog-back')) {
+      document.documentElement.classList.remove('sidebar-sub-catalog-open');
+      document.querySelector('._sub-menu-active') ? document.querySelector('._sub-menu-active').classList.remove('_sub-menu-active') : null;
+      document.querySelector('._sub-menu-open') ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open') : null;
+      e.preventDefault();
+   }
+   // if (e.target.closest('.sub-menu-catalog__back')) {
+   //    document.documentElement.classList.remove('sub-menu-open');
+   //    document.querySelector('._sub-menu-active') ? document.querySelector('._sub-menu-active').classList.remove('_sub-menu-active') : null;
+   //    document.querySelector('._sub-menu-open') ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open') : null;
+   //    e.preventDefault();
+   // }
+}
+
+
+//#endregion
