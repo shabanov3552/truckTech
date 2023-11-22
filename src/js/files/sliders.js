@@ -8,7 +8,7 @@
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Thumbs, Pagination, Autoplay } from 'swiper/modules';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -106,7 +106,84 @@ function initSliders() {
 			}
 		});
 	}
-	if (document.querySelector('.product-slider__slider')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.first-block__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.first-block__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Pagination, Autoplay],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 800,
+
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+
+
+			// Пагинация
+
+			pagination: {
+				el: '.first-block__slider .swiper-pagination',
+				clickable: true,
+			},
+
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			// navigation: {
+			// 	prevEl: '.swiper-button-prev',
+			// 	nextEl: '.swiper-button-next',
+			// },
+
+			// Брейкпоинты
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// События
+			// on: {
+
+			// }
+		});
+	}
+	if (document.querySelector('.product-slider__slider')) { // Слайдер товаров
 		const productSliders = document.querySelectorAll('.product-slider__slider');
 		let count = 1;
 		productSliders.forEach((el, i) => {
@@ -191,6 +268,112 @@ function initSliders() {
 				// }
 			});
 			count++;
+		});
+	}
+	if (document.querySelector('.product-main-slider')) { // Слайдер в деталке
+		// Создаем слайдер
+		let mainProdSlider = new Swiper('.product-main-slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Thumbs],
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 800,
+			navigation: {
+				prevEl: '.product-slider-nav .swiper-button-prev',
+				nextEl: '.product-slider-nav .swiper-button-next',
+			},
+			thumbs: {
+				swiper: {
+					el: '.product-sidebar-slider',
+					direction: 'vertical',
+					slidesPerView: 4,
+					spaceBetween: 12,
+					breakpoints: {
+						320: {
+							direction: "horizontal",
+							slidesPerView: 'auto',
+						},
+						767.98: {
+							direction: "vertical",
+							slidesPerView: 3,
+						},
+						1280.98: {
+							slidesPerView: 2,
+						},
+						1641.98: {
+							slidesPerView: 3,
+						}
+					},
+				},
+			},
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			/*
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+
+			// Пагинация
+			/*
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			*/
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+
+			// Брейкпоинты
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// События
+			// on: {
+
+			// }
+		});
+		mainProdSlider.slides.forEach((element, index) => {
+			const vidos = element.querySelector('video');
+			if (vidos) {
+				vidos.closest('.main-prod__slide').classList.add('video-slide')
+				// vidos.parentElement.setAttribute("class", '')
+				mainProdSlider.thumbs.swiper.slides[index].classList.add('video-slide');
+			}
 		});
 	}
 }

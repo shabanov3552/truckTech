@@ -65,7 +65,9 @@
 
 	// .form__txt
 
-	&__txt {}
+	&__txt {
+		min-height: 87px;
+	}
 
 
 	// .form__clear-svg
@@ -128,6 +130,21 @@
 			text-decoration: none;
 		}
 	}
+
+
+	// .form__link
+
+	&__link {
+		font-size: 16px;
+		line-height: 24px;
+		text-decoration: underline dotted;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+
 }
 
 .parsley-errors-list {

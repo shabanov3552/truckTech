@@ -1,0 +1,449 @@
+.popup {
+
+   // .popup_center
+
+   &_center {}
+
+   // .popup__wrapper
+
+   &__wrapper {}
+
+   // .popup__content
+
+   &__content {}
+
+   // .popup__close
+
+   &__close {}
+
+   // .popup__text
+
+   &__text {}
+
+   // .popup__header
+
+   &__header {}
+
+   // .popup__title
+
+   &__title {}
+
+   // .popup__main
+
+   &__main {}
+
+   // .popup__close-svg
+
+   &__close-svg {}
+
+   // .popup__icon
+
+   &__icon {}
+}
+
+.popup-box {}
+
+.basket {
+
+   // .basket__cards
+
+   &__cards {}
+
+   // .basket__info
+
+   &__info {}
+
+   // .basket__center
+
+   &__center {}
+
+   // .basket__empty-logo
+
+   &__empty-logo {}
+
+   // .basket__empty-icon
+
+   &__empty-icon {}
+
+   // .basket__empty-text
+
+   &__empty-text {}
+
+   // .basket__sub-text
+
+   &__sub-text {}
+}
+
+.basket-card {
+
+   // .basket-card__image
+
+   &__image {}
+
+   // .basket-card__center
+
+   &__center {}
+
+   // .basket-card__name
+
+   &__name {}
+
+   // .basket-card__bottom
+
+   &__bottom {}
+
+   // .basket-card__prices
+
+   &__prices {}
+
+   // .basket-card__price
+
+   &__price {}
+
+   // .basket-card__price-old
+
+   &__price-old {}
+
+   // .basket-card__discont
+
+   &__discont {}
+
+   // .basket-card__price-total
+
+   &__price-total {}
+
+   // .basket-card__buttons
+
+   &__buttons {}
+
+   // .basket-card__del
+
+   &__del {}
+
+   // .basket-card__favor
+
+   &__favor {}
+}
+
+.quantity {
+
+   // .quantity__button
+
+   &__button {
+
+      // .quantity__button_minus
+
+      &_minus {}
+
+      // .quantity__button_plus
+
+      &_plus {}
+   }
+
+   // .quantity__input
+
+   &__input {}
+}
+
+.basket-price {
+
+   // .basket-price__wrapper
+
+   &__wrapper {}
+
+   // .basket-price__row
+
+   &__row {}
+
+   // .basket-price__name
+
+   &__name {}
+
+   // .basket-price__cost
+
+   &__cost {}
+
+   // .basket-price__text
+
+   &__text {}
+
+   // .basket-price__button
+
+   &__button {}
+}
+
+.btn-red {}
+
+.basket-empty {}
+
+.share {
+
+   // .share__social
+
+   &__social {}
+
+   // .share__copy-url
+
+   &__copy-url {}
+
+   // .share__input
+
+   &__input {}
+
+   // .share__button
+
+   &__button {}
+}
+
+.uSocial-Share {}
+
+.form {
+
+   // .form__line
+
+   &__line {}
+
+   // .form__label
+
+   &__label {}
+
+   // .form__input
+
+   &__input {}
+
+   // .form__clear-svg
+
+   &__clear-svg {}
+
+   // .form__bottom
+
+   &__bottom {}
+
+   // .form__btn
+
+   &__btn {}
+
+   // .form__consent
+
+   &__consent {}
+
+   // .form__consent-link
+
+   &__consent-link {}
+
+   // .form__line-desc
+
+   &__line-desc {}
+
+   // .form__button
+
+   &__button {}
+
+   // .form__line-title
+
+   &__line-title {}
+
+   // .form__row
+
+   &__row {}
+
+   // .form__txt
+
+   &__txt {}
+}
+
+.sizes {
+
+   // .sizes__top
+
+   &__top {}
+
+   // .sizes__text
+
+   &__text {}
+
+   // .sizes__center
+
+   &__center {}
+
+   // .sizes__row
+
+   &__row {}
+
+   // .sizes__name
+
+   &__name {}
+
+   // .sizes__list
+
+   &__list {}
+
+   // .sizes__item
+
+   &__item {}
+
+   // .sizes__bottom
+
+   &__bottom {}
+
+   // .sizes__title
+
+   &__title {}
+}
+
+.login {
+
+   // .login__text
+
+   &__text {}
+
+   // .login__link
+
+   &__link {}
+}
+
+.js {
+
+   // .js_phone
+
+   &_phone {}
+}
+
+.js-countdown {}
+
+.search-form {
+
+   // .search-form__top
+
+   &__top {}
+
+   // .search-form__line
+
+   &__line {}
+
+   // .search-form__label
+
+   &__label {}
+
+   // .search-form__input
+
+   &__input {}
+
+   // .search-form__svg
+
+   &__svg {}
+
+   // .search-form__icon
+
+   &__icon {}
+
+   // .search-form__center
+
+   &__center {}
+
+   // .search-form__item
+
+   &__item {}
+
+   // .search-form__image-ibg
+
+   &__image-ibg {
+
+      // .search-form__image-ibg_contain
+
+      &_contain {}
+   }
+
+   // .search-form__content
+
+   &__content {}
+
+   // .search-form__name
+
+   &__name {}
+
+   // .search-form__prices
+
+   &__prices {}
+
+   // .search-form__price
+
+   &__price {}
+
+   // .search-form__bottom
+
+   &__bottom {}
+
+   // .search-form__button
+
+   &__button {}
+}
+
+.btn-border {
+
+   // .btn-border_black
+
+   &_black {}
+}
+
+.map-shops {
+
+   // .map-shops__row
+
+   &__row {}
+
+   // .map-shops__col
+
+   &__col {}
+
+   // .map-shops__title
+
+   &__title {}
+
+   // .map-shops__list
+
+   &__list {}
+
+   // .map-shops__item
+
+   &__item {}
+
+   // .map-shops__mag-name
+
+   &__mag-name {}
+
+   // .map-shops__mag-address
+
+   &__mag-address {}
+
+   // .map-shops__phones
+
+   &__phones {}
+
+   // .map-shops__phone
+
+   &__phone {}
+
+   // .map-shops__work
+
+   &__work {}
+
+   // .map-shops__map
+
+   &__map {}
+}
+
+.checkbox {
+
+   // .checkbox__input
+
+   &__input {}
+
+   // .checkbox__label
+
+   &__label {}
+
+   // .checkbox__text
+
+   &__text {}
+}
