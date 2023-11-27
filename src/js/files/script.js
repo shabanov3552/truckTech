@@ -236,7 +236,7 @@ window.addEventListener("load", function (e) {
          pickUpPointButtons.forEach(btn => {
             btn.setAttribute('class', '')
             btn.style = 'display: flex; justify-content:center; align-items: center; text-align: center;';
-            btn.classList.add('btn__orange', 'btn');
+            btn.classList.add('radio-buttons__btn', 'btn', 'btn_grey');
          });
       }
       styleButtonChange();
@@ -280,10 +280,6 @@ if (sidebarCatalogMenuChunk !== null) {
 //#endregion
 
 //#region Открыть/закрыть боковой каталог
-
-// js-open-sidebar-catalog
-// js-sidebar-catalog-back
-// js-sidebar-catalog-close
 
 function sidebarCatalogActions(e) {
    if (e.target.closest('[data-parent]')) {

@@ -5,6 +5,13 @@
 	margin-bottom: rem(18);
 	display: flex;
 
+	.page-contacts.page-left-margin & {
+		padding-left: rem(0);
+		max-width: 1083px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.page-left-margin & {
 		padding-left: rem(320);
 

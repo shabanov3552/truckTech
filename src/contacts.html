@@ -1,0 +1,135 @@
+@@include('html/_header.htm',{
+"title":"Контакты",
+"modifierClass":"page-contacts page-left-margin"
+})
+<main class="page">
+   <div class="page__container">
+      @@include('html/_breadcrumbs.htm',{})
+      <h1 class="page__title">Контакты</h1>
+   </div>
+
+   <div class="contacts">
+      <div class="contacts__container">
+         <div class="contacts__content">
+            <div class="contacts__main">
+               <div class="contacts__title">Контактные данные</div>
+               <div class="contacts__item">
+                  <img src="@img/icons/icon-contact-phone.svg" alt="">
+                  <span class="contacts__item-name">Телефон</span>
+                  <a href="tel:+73912999103" class="contacts__item-link">+7 391 299-91-03</a>
+               </div>
+               <div class="contacts__item">
+                  <img src="@img/icons/icon-contact-mail.svg" alt="">
+                  <span class="contacts__item-name">E-mail </span>
+                  <a href="mailto:info@mail.ru" class="contacts__item-link">info@mail.ru</a>
+               </div>
+            </div>
+            <div class="requisites">
+               <h3 class="requisites__title">Реквизиты</h3>
+               <div class="requisites__subtitle">Общество c Ограниченной Ответственностью "ПОРТ-ВОСТОК"</div>
+               <div data-showmore="items" class="requisites__col">
+                  <ul data-showmore-content="1" class="requisites__list">
+                     <li class="requisites__item">
+                        <div class="requisites__name">ИНН:</div>
+                        <div class="requisites__value">246500078600</div>
+                     </li>
+                     <li class="requisites__item">
+                        <div class="requisites__name">ОГРНИП:</div>
+                        <div class="requisites__value">304246527400109</div>
+                     </li>
+                     <li class="requisites__item">
+                        <div class="requisites__name">Расчетный счет:</div>
+                        <div class="requisites__value">40802810409530000324</div>
+                     </li>
+                     <li class="requisites__item">
+                        <div class="requisites__name">Банк:</div>
+                        <div class="requisites__value">БАНК "ЛЕВОБЕРЕЖНЫЙ" (ПАО)</div>
+                     </li>
+                     <li class="requisites__item">
+                        <div class="requisites__name">БИК:</div>
+                        <div class="requisites__value">045004850</div>
+                     </li>
+                     <li class="requisites__item">
+                        <div class="requisites__name">Корр. счет:</div>
+                        <div class="requisites__value">30101810100000000850</div>
+                     </li>
+                     <li class="requisites__item">
+                        <div class="requisites__name">Адрес юридический:</div>
+                        <div class="requisites__value">366108, Чеченская респ, р-н Шелковской, ст-ца Шелковская, ул им Р.Мажатова, д. 1Б, кв. 10</div>
+                     </li>
+                     <li class="requisites__item">
+                        <div class="requisites__name">Адрес фактический/почтовый:</div>
+                        <div class="requisites__value">660048, Красноярский край, г Красноярск, ул 2-я Брянская, д. 12</div>
+                     </li>
+                  </ul>
+                  <button hidden data-showmore-button type="button" class="requisites__more"><span>Показать реквизиты</span><span>Скрыть реквизиты</span></button>
+               </div>
+               <a href="" download="" class="requisites__link">
+                  <img src="@img/icons/requisites.svg" alt="">
+                  <span class="requisites__link-name">Скачать реквизиты</span>
+                  <span class="requisites__link-text">PDF, 1.8 МB</span>
+               </a>
+            </div>
+         </div>
+         <div class="contacts__item contacts__item_place">
+            <img src="@img/icons/icon-contact-place.svg" alt="">
+            <span class="contacts__item-name">Местоположение</span>
+            <a href="tel:+73912999103" class="contacts__item-link">Красноярск, Кардачинская, 28</a>
+         </div>
+      </div>
+   </div>
+
+   <div class="contacts-map">
+      <div class="contacts-map__container">
+         <div id="map"></div>
+      </div>
+      <script>
+         @@include('js/files/map.js', {})
+      </script>
+   </div>
+
+   <div class="page-form">
+      <div class="page-form__container">
+         <div class="page-form__grid">
+            <div class="page-form__content">
+               <div class="page-form__descr">Задайте <span>вопрос</span> ,<br> направьте <span>претензию</span><br> или оставьте <span>отзыв</span><br> о работе сайта или магазина</div>
+            </div>
+            <form action="" class="page-form__form form" data-parsley-validate="" data-parsley-trigger="change">
+               <div class="form__line">
+                  <label for="pageFormUserName" class="form__label">Ваше имя *</label>
+                  <input required id="pageFormUserName" type="text" name="user" class="form__input">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="pageFormUserPhone" class="form__label">Контактный телефон *</label>
+                  <input required id="pageFormUserPhone" type="tel" name="tel" class="form__input js_phone">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="pageFormUserMail" class="form__label">E-mail *</label>
+                  <input required id="pageFormUserMail" type="email" name="mail" class="form__input">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="pageFormUserText" class="form__label">Комментарий</label>
+                  <textarea id="pageFormUserText" autocomplete="off" name="" placeholder="" class="form__txt"></textarea>
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__footer">
+                  <button type="submit" class="form__button btn-border btn-border_white">Отправить</button>
+                  <div class="form__consent">Отправляя данные, я даю свое <a href="" class="form__consent-link">согласие на обработку перс. данных</a></div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

@@ -9,8 +9,16 @@
       font-weight: 800;
       margin-bottom: rem(28);
 
+      .page-contacts.page-left-margin & {
+         padding-left: rem(0);
+         max-width: 1083px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+
       .page-left-margin & {
          padding-left: rem(320);
+
 
          @media (max-width:$laptopL) {
             padding-left: rem(290);
@@ -73,7 +81,7 @@
       @include adaptiveValue("padding-right", 425, 180, 0, 1920, 1440);
 
       @media (min-width:$mobile) {
-         background: url(../img/page-form-bg.png) no-repeat bottom right;
+         background: url(../img/page-form-bg.png) no-repeat bottom right/cover;
       }
 
       @media (max-width:$laptopL) {
@@ -142,6 +150,21 @@
 
       @media (max-width:$tablet) {
          margin: 0;
+      }
+   }
+
+   // .page-form__descr
+
+   &__descr {
+      color: var(--text-white);
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 40px;
+
+      span {
+         background: var(--red-main);
+         border-radius: 5px;
+         padding: 0 rem(5);
       }
    }
 
@@ -292,3 +315,34 @@
 }
 
 //#endregion
+
+.payment {
+
+   // .payment__text
+
+   &__text {
+      font-size: 14px;
+      line-height: 22px;
+      color: #000;
+      margin: 0px 0px 10px 0px;
+      display: block;
+      text-align: right;
+
+      @media (max-width:$tablet) {
+         text-align: center;
+      }
+   }
+
+   // .payment__row
+
+   &__row {
+      width: 205px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   // .payment__item
+
+   &__item {}
+}

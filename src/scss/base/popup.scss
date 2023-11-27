@@ -138,11 +138,11 @@ body::after {
 			max-width: 737px;
 		}
 
-		#basket & {
+		.popup-basket & {
 			max-width: 1046px;
 		}
 
-		#basket.basket-empty & {
+		.popup-basket.basket-empty & {
 			max-width: 336px;
 		}
 	}
@@ -422,8 +422,14 @@ body::after {
 	// .basket-card__favor
 
 	&__favor {
-		width: 19px;
-		height: 17px;
+		&.btn-add {
+			width: 19px;
+			height: 17px;
+
+			img {
+				width: 100%;
+			}
+		}
 	}
 
 	// .basket-card__compare

@@ -1,4 +1,13 @@
 // #region sidebar-catalog-btn
+@media (min-width:$pc) {
+   .sidebar-catalog-open {
+      .index-page {
+         .sidebar-catalog-btn {
+            background: url(../img/sidebar-catalog-btn-active.svg) no-repeat top left;
+         }
+      }
+   }
+}
 
 .sidebar-catalog-btn {
    position: fixed;
@@ -87,6 +96,8 @@
    .sidebar-catalog-open & {
       clip-path: none;
       background: url(../img/sidebar-catalog-btn-active.svg) no-repeat top left;
+
+
 
       @media (max-width:$pc) {
          background: url(../img/sidebar-catalog-btn-active-2.svg) no-repeat top left;
