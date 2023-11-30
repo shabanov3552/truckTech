@@ -86,9 +86,9 @@ class SelectConstructor {
 			const selectItems = data ? document.querySelectorAll(data) : document.querySelectorAll('select');
 			if (selectItems.length) {
 				this.selectsInit(selectItems);
-				this.setLogging(`Проснулся, построил селектов: (${selectItems.length})`);
+				// this.setLogging(`Проснулся, построил селектов: (${selectItems.length})`);
 			} else {
-				this.setLogging('Сплю, нет ни одного select zzZZZzZZz');
+				// this.setLogging('Сплю, нет ни одного select zzZZZzZZz');
 			}
 		}
 	}
@@ -161,9 +161,13 @@ class SelectConstructor {
 		this.config.speed = +originalSelect.dataset.speed;
 
 		// Событие при изменении оригинального select
-		originalSelect.addEventListener('change', function (e) {
-			_this.selectChange(e);
-		});
+		if (this.preventEventLoop) {
+			originalSelect.addEventListener('change', function (e) {
+				_this.selectChange(e);
+			});
+		} else {
+			this.preventEventLoop = false
+		}
 	}
 	// Конструктор псевдоселекта
 	selectBuild(originalSelect) {
@@ -463,7 +467,7 @@ class SelectConstructor {
 				originalSelectSelectedItems.forEach(originalSelectSelectedItem => {
 					originalSelectSelectedItem.removeAttribute('selected');
 				});
-				// Выбираем элементы 
+				// Выбираем элементы
 				const selectSelectedItems = selectItem.querySelectorAll(this.getSelectClass(this.selectClasses.classSelectOptionSelected));
 				selectSelectedItems.forEach(selectSelectedItems => {
 					originalSelect.querySelector(`option[value = "${selectSelectedItems.dataset.value}"]`).setAttribute('selected', 'selected');
@@ -510,6 +514,12 @@ class SelectConstructor {
 			tempButton.remove();
 		}
 		const selectItem = originalSelect.parentElement;
+
+		var evt = new Event("change", { "bubbles": true, "cancelable": false });
+		originalSelect.dispatchEvent(evt);
+		// защита от переполнения стека
+		this.preventEventLoop = true
+
 		// Вызов коллбэк функции
 		this.selectCallback(selectItem, originalSelect);
 	}
