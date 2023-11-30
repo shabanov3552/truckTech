@@ -1,0 +1,223 @@
+.faq {
+	.page-faq.page-left-margin & {
+		@include adaptiveValue("padding-left", 242, 0, 0, 1920, 1440);
+	}
+
+	// .faq__container
+
+	&__container {
+		display: grid;
+		grid-template-columns: 190px 1fr;
+		gap: 133px;
+
+		@media (max-width:$laptopL) {
+			gap: 55px;
+		}
+
+		@media (max-width:$laptop) {
+			gap: 36px;
+		}
+
+		@media (max-width:$tablet) {
+			gap: 30px;
+			grid-template-columns: 1fr;
+		}
+	}
+
+	// .faq__navigation
+
+	&__navigation {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+		align-items: flex-start;
+
+		@media (max-width:$tablet) {
+			display: grid;
+			justify-items: start;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	// .faq__directory
+
+	&__directory {
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 400;
+		color: var(--red-main);
+		text-align: left;
+
+		&._tab-active,
+		&:hover {
+			color: var(--text-black);
+		}
+	}
+
+	// .faq__content
+
+	&__content {
+		max-width: 960px;
+	}
+
+	// .faq__body
+
+	&__body {
+		@media (max-width:$mobileSmall) {
+			margin: 0 rem(-20);
+		}
+	}
+
+	// .faq__spollers
+
+	&__spollers {}
+
+	// .faq__block
+
+	&__block {
+		border: 1px solid #B4B0AD;
+
+		&:not(:last-child) {
+			border-bottom: none;
+		}
+	}
+
+	// .faq__spoller
+
+	&__spoller {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 22px;
+		padding: rem(26);
+		padding-left: rem(38);
+		padding-right: rem(29);
+		cursor: pointer;
+
+		&._spoller-active {
+			.faq__spoller-icon {
+				transform: rotate(45deg);
+			}
+		}
+
+		@media (max-width:$mobile) {
+			padding-left: rem(18);
+			padding-right: rem(23);
+		}
+	}
+
+	// .faq__subtitle
+
+	&__subtitle {
+		font-size: 20px;
+		font-weight: 600;
+	}
+
+	// .faq__spoller-icon
+
+	&__spoller-icon {
+		transition: all 0.3s ease 0s;
+		width: 31px;
+		height: 31px;
+		flex: 0 0 31px;
+	}
+
+	// .faq__spoller-svg
+
+	&__spoller-svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	// .faq__text
+
+	&__text {
+		padding-left: rem(70);
+		padding-right: rem(127);
+		padding-bottom: rem(31);
+		font-size: 18px;
+		line-height: 26px;
+		font-weight: 400;
+
+		@media (max-width:$mobile) {
+			padding: 0 rem(25);
+			padding-bottom: rem(31);
+
+		}
+	}
+}
+
+// Как сделать заказ ========================================================================================================================================================
+
+.faq-order {
+	max-width: 1120px;
+	margin: 0 auto;
+	margin-top: rem(52);
+
+	@media (max-width:$laptopL) {
+		max-width: 960px;
+	}
+
+	@media (max-width:$laptop) {
+		max-width: 726px;
+	}
+
+	// .faq-order__row
+
+	&__row {
+		display: grid;
+		grid-template-columns: 560px 1fr;
+		margin-bottom: rem(75);
+		align-items: start;
+
+		@media (max-width: $tablet) {
+			grid-template-rows: repeat(2, auto);
+			grid-template-columns: 1fr;
+			justify-items: start;
+		}
+	}
+
+	// .faq-order__image
+
+	&__image {
+		height: 251px;
+
+		@media (max-width:$mobileSmall) {
+			height: 153px;
+		}
+
+		img {
+			width: 100%;
+			object-fit: contain;
+			height: 100%;
+		}
+	}
+
+	// .faq-order__desc
+
+	&__desc {
+		margin-left: rem(50);
+
+		@media (max-width: em(1280)) {
+			grid-row: 2/3;
+			grid-column: 1/4;
+			margin-left: 0;
+			margin-top: rem(20);
+		}
+	}
+
+	// .faq-order__title
+
+	&__title {
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 24px;
+		margin-bottom: rem(21);
+	}
+
+	// .faq-order__text
+
+	&__text {
+		line-height: 24px;
+	}
+}

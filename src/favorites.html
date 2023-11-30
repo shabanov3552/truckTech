@@ -1,0 +1,131 @@
+@@include('html/_header.htm',{
+"title":"Избранное",
+"modifierClass":""
+})
+<main class="page">
+   <div class="page__container">
+      @@include('html/_breadcrumbs.htm',{})
+      <div class="page__title">Избранное</div>
+
+      <div class="favorites">
+         <div class="favorites__sort sort">
+            <div class="sort__row">
+               <div class="sort__left">
+                  <div class="sort__title">Сортировка</div>
+                  <div class="sort__select-wrapper">
+                     <select name="form[]" data-class-modif="sort">
+                        <option value="1" selected>Сначала новинки</option>
+                        <option value="2">Сортировать по возрастанию цены</option>
+                        <option value="3">Пункт №3</option>
+                        <option value="4">Пункт №4</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="sort__right">
+                  <div class="sort__select-wrapper">
+                     <select name="form[]" data-class-modif="sort">
+                        <option value="1" selected>Показывать по 15</option>
+                        <option value="2">Показывать по 30</option>
+                        <option value="3">Показывать по 60</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="favorites__cards">
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-1.png",
+            "name":"Топливный бак 300 л для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"",
+            "classes":"hit"
+            })
+
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-2.png",
+            "name":"Шестерня коробки для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"_active",
+            "classes":"sale"
+            })
+
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-3.png",
+            "name":"Тормозные колодки для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"",
+            "classes":"hit"
+            })
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-1.png",
+            "name":"Топливный бак 300 л для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"",
+            "classes":"hit"
+            })
+
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-2.png",
+            "name":"Шестерня коробки для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"_active",
+            "classes":"sale"
+            })
+
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-3.png",
+            "name":"Тормозные колодки для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"",
+            "classes":"hit"
+            })
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-1.png",
+            "name":"Топливный бак 300 л для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"",
+            "classes":"hit"
+            })
+
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-2.png",
+            "name":"Шестерня коробки для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"_active",
+            "classes":"sale"
+            })
+
+            @@include('html/_product-card.htm',{
+            "image":"img/products/pd-c-3.png",
+            "name":"Тормозные колодки для автомобилей Shacman 3000 серии, крышка резьбовая",
+            "price":"40300 ₽",
+            "oldPrice":"50700 ₽",
+            "link":"В корзину",
+            "active":"",
+            "classes":"hit"
+            })
+         </div>
+         <div class="favorites__pagging">
+            @@include('html/_pagging.htm',{})
+         </div>
+      </div>
+
+   </div>
+</main>
+@@include('html/_footer.htm',{})

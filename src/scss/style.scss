@@ -121,11 +121,8 @@ body {
 	// Отзывчивая
 	[class*="__container"] {
 		@if ($maxWidthContainer>0) {
-			// max-width: rem($containerWidth);
-			// margin: 0 auto;
 			@include adaptiveValue("padding-left", 85, 54, 0, 1920, $containerWidth);
 			@include adaptiveValue("padding-right", 85, 40, 0, 1920, $containerWidth);
-			// padding: 0 rem(85);
 
 			@media (max-width:$pc) {
 				padding-left: rem(55);
@@ -220,3 +217,7 @@ body {
 @import "contacts";
 @import "cabinet";
 @import "order";
+@import "faq";
+@import "about";
+@import "del-exch";
+@import "favorites";

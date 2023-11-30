@@ -233,6 +233,18 @@ body::after {
 		overflow: auto;
 		height: calc(100% - 121px);
 	}
+
+	// .popup__video
+
+	&__video {
+		width: 100%;
+		height: calc(100vh - 200px);
+
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
 }
 
 //#endregion

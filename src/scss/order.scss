@@ -742,10 +742,17 @@
 }
 
 .order-success {
-	// @include adaptiveValue("padding-left", 400, 0, 0, 1920, 1000, );
-	max-width: 1000px;
-	margin: 0 auto;
+	padding-left: rem(80);
 	margin-top: rem(85);
+
+	@media (max-width:$mobile) {
+		padding-left: rem(20);
+		margin-top: rem(50);
+	}
+
+	@media (max-width:$mobileSmall) {
+		padding-left: 0;
+	}
 
 	// .order-success__row
 
@@ -772,6 +779,6 @@
 	// .order-success__link
 
 	&__link {
-		color: #E52931;
+		color: var(--red-main);
 	}
 }

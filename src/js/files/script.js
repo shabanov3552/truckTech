@@ -259,10 +259,6 @@ window.addEventListener("load", function (e) {
    // }, 20000);
 });
 
-if (document.querySelector('.order-success')) {
-   document.querySelector('.page__title').classList.add('order-success')
-}
-
 //#region hover на ссылках в боковом каталоге
 
 const sidebarCatalogMenuChunk = document.querySelector('.sidebar-catalog__menu-chunk');

@@ -15499,7 +15499,6 @@ PERFORMANCE OF THIS SOFTWARE.
                 observer.observe(target, config);
             }
         }));
-        if (document.querySelector(".order-success")) document.querySelector(".page__title").classList.add("order-success");
         const sidebarCatalogMenuChunk = document.querySelector(".sidebar-catalog__menu-chunk");
         if (sidebarCatalogMenuChunk !== null) {
             const sidebarCatalogMenu = sidebarCatalogMenuChunk.querySelector(".sidebar-catalog__menu");

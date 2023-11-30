@@ -1,0 +1,39 @@
+@@include('html/_header.htm',{
+"title":"О компании",
+"modifierClass":"page-about page-left-margin"
+})
+<main class="page">
+   <div class="page__container">
+      @@include('html/_breadcrumbs.htm',{})
+      <h1 class="page__title">О компании</h1>
+      <div class="page__image-ibg"><img src="@img/about-page-bg.png" alt=""></div>
+   </div>
+   <div class="about-chunk">
+      <div class="about-chunk__desr">
+         <p>TruckTech - ведущая компания по продаже запчастей от китайских грузовиков в Красноярске. Мы предлагаем широкий ассортимент оригинальных и сертифицированных запчастей для различных моделей грузовых автомобилей. Наша команда экспертов обладает богатым опытом и знаниями, чтобы помочь нашим клиентам подобрать правильные детали и осуществить ремонт или замену с минимальными трудностями. </p>
+         <p>Мы стремимся обеспечить высокое качество продукции, быструю доставку и конкурентоспособные цены, чтобы удовлетворить потребности наших клиентов. Будучи надежным партнером для владельцев грузовиков, TruckTech помогает им поддерживать свои транспортные средства в отличном состоянии и обеспечивать бесперебойную работу своих бизнесов.</p>
+      </div>
+      <div class="about-chunk__video about-chunk__image-ibg" data-popup="#video" data-popup-youtube="dLpxtAcapv0">
+         <img src="@img/about-chunk__video-bg.png" alt="" class="about-chunk__image-bg">
+         <img src="@img/about-chunk__video-logo.svg" alt="" class="about-chunk__image-logo">
+         <img src="@img/about-chunk__video-btn.svg" alt="" class="about-chunk__image-btn">
+         <div class="about-chunk__video-bottom">
+            <div class="about-chunk__video-title">Видео о нас</div>
+            <div class="about-chunk__video-features">
+               <span>Производство</span>
+               <span>Ассортимент</span>
+               <span>Контроль качества</span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="truck-detail__gallery" data-gallery>
+      <div class="truck-detail__gellery-item" data-src="img/gallery-1.png"><img src="img/gallery-1.png" alt=""></div>
+      <div class="truck-detail__gellery-item" data-src="img/gallery-2.png"><img src="img/gallery-2.png" alt=""></div>
+      <div class="truck-detail__gellery-item" data-src="img/gallery-3.png"><img src="img/gallery-3.png" alt=""></div>
+      <div class="truck-detail__gellery-item" data-src="img/gallery-4.png"><img src="img/gallery-4.png" alt=""></div>
+      <div class="truck-detail__gellery-item" data-src="img/gallery-5.png"><img src="img/gallery-5.png" alt=""></div>
+      <div class="truck-detail__gellery-item" data-src="img/gallery-6.png"><img src="img/gallery-6.png" alt=""></div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})
