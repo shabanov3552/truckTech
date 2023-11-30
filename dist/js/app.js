@@ -12031,20 +12031,6 @@
             });
         }
         function initSliders() {
-            if (document.querySelector(".sw")) new swiper_core_Swiper(".sw", {
-                modules: [ Navigation ],
-                observer: true,
-                observeParents: true,
-                slidesPerView: 1,
-                spaceBetween: 0,
-                autoHeight: true,
-                speed: 800,
-                navigation: {
-                    prevEl: ".swiper-button-prev",
-                    nextEl: ".swiper-button-next"
-                },
-                on: {}
-            });
             if (document.querySelector(".first-block__slider")) new swiper_core_Swiper(".first-block__slider", {
                 modules: [ Pagination, Autoplay ],
                 observer: true,
@@ -12052,7 +12038,6 @@
                 slidesPerView: 1,
                 spaceBetween: 20,
                 speed: 800,
-                effect: "fade",
                 autoplay: {
                     delay: 3e3,
                     disableOnInteraction: false
@@ -15384,24 +15369,6 @@ PERFORMANCE OF THIS SOFTWARE.
             const columns = popup.querySelectorAll(".filters__col");
             const popupWrapper = popup.querySelector(".filters__wrapper");
             columns.length > 1 ? popupWrapper.classList.add("many-cols") : null;
-        }
-        document.querySelectorAll(".float-line").forEach((e => {
-            floatLine(e);
-        }));
-        function floatLine(node) {
-            if (!node) return;
-            node.addEventListener("mouseover", (e => {
-                if (e.target.classList.contains("float-line__item")) if (node.closest(".float-line__horizontal")) {
-                    node.style.setProperty("--underline-offset-y", `${e.target.offsetTop}px`);
-                    node.style.setProperty("--underline-height", `${e.target.offsetHeight}px`);
-                } else {
-                    node.style.setProperty("--underline-width", `${e.target.offsetWidth}px`);
-                    node.style.setProperty("--underline-offset-x", `${e.target.offsetLeft}px`);
-                }
-            }));
-            node.addEventListener("mouseleave", (() => {
-                if (node.closest(".float-line__horizontal")) node.style.setProperty("--underline-height", "0"); else node.style.setProperty("--underline-width", "0");
-            }));
         }
         let shareButton = document.getElementById("share-button");
         if (shareButton) {

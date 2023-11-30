@@ -70,56 +70,10 @@ function getFilterColumns(popup) {
 
 //#endregion
 
-//#region Плавающая линия для табов
-
-document.querySelectorAll(".float-line").forEach(e => {
-   floatLine(e)
-});
-
-function floatLine(node) {
-   if (!node) return
-
-   node.addEventListener("mouseover", (e) => {
-      if (e.target.classList.contains("float-line__item")) {
-         if (node.closest('.float-line__horizontal')) {
-            node.style.setProperty(
-               "--underline-offset-y",
-               `${e.target.offsetTop}px`
-            );
-            node.style.setProperty(
-               "--underline-height",
-               `${e.target.offsetHeight}px`
-            );
-         } else {
-            node.style.setProperty(
-               "--underline-width",
-               `${e.target.offsetWidth}px`
-            );
-            node.style.setProperty(
-               "--underline-offset-x",
-               `${e.target.offsetLeft}px`
-            );
-         }
-      }
-   });
-   node.addEventListener("mouseleave", () => {
-      if (node.closest('.float-line__horizontal')) {
-         node.style.setProperty("--underline-height", "0")
-      } else {
-         node.style.setProperty("--underline-width", "0")
-      }
-   });
-}
-
-//#endregion
-
 //#region Шаринг в деталке
-
 
 let shareButton = document.getElementById('share-button');
 if (shareButton) {
-
-
    let thisUrl = window.location.href
    let thisTitle = document.title;
    shareButton.addEventListener('click', function () {
@@ -220,6 +174,8 @@ function changeData(target) {
 
 //#endregion
 
+//#region Добавление классов для кнопок на странице оформления при загрузке и обновлении сстраницы
+
 window.addEventListener("load", function (e) {
    const target = document.querySelector('.radio-buttons');
    if (target) {
@@ -253,11 +209,9 @@ window.addEventListener("load", function (e) {
 
       observer.observe(target, config);
    }
-
-   // setTimeout(() => {
-   //    closeAlertPopup();
-   // }, 20000);
 });
+
+//#endregion
 
 //#region hover на ссылках в боковом каталоге
 
@@ -295,7 +249,6 @@ function sidebarCatalogActions(e) {
          document.documentElement.classList.add('sidebar-sub-catalog-open');
          targetElement.classList.add('_sub-menu-active');
          subMenu.classList.add('_sub-menu-open');
-         // showMore(subMenu.querySelectorAll('[data-showmore]'));
          e.preventDefault();
       } else {
          const activeLink = document.querySelector('._sub-menu-active');
@@ -315,13 +268,6 @@ function sidebarCatalogActions(e) {
       document.querySelector('._sub-menu-open') ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open') : null;
       e.preventDefault();
    }
-   // if (e.target.closest('.sub-menu-catalog__back')) {
-   //    document.documentElement.classList.remove('sub-menu-open');
-   //    document.querySelector('._sub-menu-active') ? document.querySelector('._sub-menu-active').classList.remove('_sub-menu-active') : null;
-   //    document.querySelector('._sub-menu-open') ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open') : null;
-   //    e.preventDefault();
-   // }
 }
-
 
 //#endregion

@@ -457,41 +457,6 @@
 	}
 }
 
-.form {
-
-	// .form__line
-
-	&__line {}
-
-	// .form__label
-
-	&__label {}
-
-	// .form__input
-
-	&__input {}
-
-	// .form__clear-svg
-
-	&__clear-svg {}
-}
-
-.btn {
-
-	// .btn__transparent
-
-	&__transparent {
-
-		// .btn__transparent_black
-
-		&_black {}
-	}
-
-	// .btn__orange
-
-	&__orange {}
-}
-
 .basket-order {
 	background: #F5F5F5;
 	padding: rem(35) rem(40);
