@@ -3290,12 +3290,26 @@
                 return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
             }
         };
+        function addTouchClass() {
+            if (isMobile.any()) document.documentElement.classList.add("touch");
+        }
         function functions_getHash() {
             if (location.hash) return location.hash.replace("#", "");
         }
         function setHash(hash) {
             hash = hash ? `#${hash}` : window.location.href.split("#")[0];
             history.pushState("", "", hash);
+        }
+        function fullVHfix() {
+            const fullScreens = document.querySelectorAll("[data-fullscreen]");
+            if (fullScreens.length && isMobile.any()) {
+                window.addEventListener("resize", fixHeight);
+                function fixHeight() {
+                    let vh = window.innerHeight * .01;
+                    document.documentElement.style.setProperty("--vh", `${vh}px`);
+                }
+                fixHeight();
+            }
         }
         let _slideUp = (target, duration = 500, showmore = 0) => {
             if (!target.classList.contains("_slide")) {
@@ -4207,10 +4221,7 @@
                 this._this = this;
                 if (this.config.init) {
                     const selectItems = data ? document.querySelectorAll(data) : document.querySelectorAll("select");
-                    if (selectItems.length) {
-                        this.selectsInit(selectItems);
-                        this.setLogging(`Проснулся, построил селектов: (${selectItems.length})`);
-                    } else this.setLogging("Сплю, нет ни одного select zzZZZzZZz");
+                    if (selectItems.length) this.selectsInit(selectItems);
                 }
             }
             getSelectClass(className) {
@@ -4258,9 +4269,9 @@
                 this.selectBuild(originalSelect);
                 originalSelect.dataset.speed = originalSelect.dataset.speed ? originalSelect.dataset.speed : this.config.speed;
                 this.config.speed = +originalSelect.dataset.speed;
-                originalSelect.addEventListener("change", (function(e) {
+                if (this.preventEventLoop) originalSelect.addEventListener("change", (function(e) {
                     _this.selectChange(e);
-                }));
+                })); else this.preventEventLoop = false;
             }
             selectBuild(originalSelect) {
                 const selectItem = originalSelect.parentElement;
@@ -4496,6 +4507,12 @@
                     tempButton.remove();
                 }
                 const selectItem = originalSelect.parentElement;
+                var evt = new Event("change", {
+                    bubbles: true,
+                    cancelable: false
+                });
+                originalSelect.dispatchEvent(evt);
+                this.preventEventLoop = true;
                 this.selectCallback(selectItem, originalSelect);
             }
             selectDisabled(selectItem, originalSelect) {
@@ -4531,7 +4548,7 @@
                 this.config.logging ? functions_FLS(`[select]: ${message} `) : null;
             }
         }
-        modules_flsModules.select = new SelectConstructor({});
+        window.constructorSelect = new SelectConstructor({});
         __webpack_require__(125);
         const inputMasks = document.querySelectorAll("input");
         if (inputMasks.length) modules_flsModules.inputmask = Inputmask().mask(inputMasks);
@@ -13936,7 +13953,6 @@ PERFORMANCE OF THIS SOFTWARE.
             }
             mediaHandler(matchMedia, оbjects) {
                 if (matchMedia.matches) оbjects.forEach((оbject => {
-                    console.log(оbject);
                     this.moveTo(оbject.place, оbject.element, оbject.destination);
                 })); else оbjects.forEach((({parent, element, index}) => {
                     if (element.classList.contains(this.daClassname)) this.moveBack(parent, element, index);
@@ -13945,7 +13961,6 @@ PERFORMANCE OF THIS SOFTWARE.
             moveTo(place, element, destination) {
                 element.classList.add(this.daClassname);
                 if (place === "last" || place >= destination.children.length) {
-                    console.log(destination);
                     destination.append(element);
                     return;
                 }
@@ -15509,9 +15524,11 @@ PERFORMANCE OF THIS SOFTWARE.
                 e.preventDefault();
             }
         }
-        window["FLS"] = true;
+        window["FLS"] = false;
         isWebp();
+        addTouchClass();
         menuInit();
+        fullVHfix();
         spollers();
         tabs();
         showMore();
