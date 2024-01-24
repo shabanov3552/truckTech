@@ -255,6 +255,8 @@
 
       @media (max-width:$mobile) {
          border: none;
+         position: relative;
+         z-index: 10;
       }
    }
 
@@ -275,7 +277,7 @@
 
    &__back {
       width: 18px;
-      height: 27px;
+      height: 26px;
       display: none;
 
       @media (max-width:$mobile) {
@@ -363,6 +365,7 @@
       @media (max-width:$tablet) {
          height: calc(100vh - 71px);
          padding: rem(20);
+         padding-bottom: rem(150);
       }
 
       @media (max-width:$mobile) {
@@ -455,13 +458,14 @@
 
    @media (max-width:$mobile) {
       position: fixed;
-      height: calc(100vh - 70px);
+      height: 100%;
       width: 100%;
-      bottom: 0;
+      top: 0;
       right: -100%;
       background: var(--bg-cat-dark-grey);
       transition: all 0.3s;
       display: block;
+      padding-top: rem(70);
 
       .sidebar-sub-catalog-open & {
          right: 0;
@@ -483,6 +487,11 @@
          padding: 0;
       }
 
+      @media (max-width:$mobile) {
+         padding: 0;
+         height: 100%;
+      }
+
       &::after {
          content: '';
          position: absolute;
@@ -497,8 +506,14 @@
    // .sidebar-sub-catalog__chunk
 
    &__chunk {
-      @media (max-width:$tablet) {
-         padding: rem(20);
+      @media (max-width:$tablet) {}
+
+      @media (max-width:$mobile) {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
       }
 
       &._sub-menu-open {
@@ -520,6 +535,15 @@
 
       @media (max-width:$laptopL) {
          grid-template-columns: 1fr;
+      }
+
+      @media (max-width:$tablet) {
+         height: calc(100vh - 70px);
+         padding: rem(20);
+      }
+
+      @media (max-width:$mobile) {
+         height: 100%;
       }
    }
 
@@ -548,6 +572,7 @@
 
       @media (max-width:$tablet) {
          padding: 0;
+         padding-bottom: rem(100);
       }
 
       &::-webkit-scrollbar {

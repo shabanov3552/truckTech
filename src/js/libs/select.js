@@ -566,6 +566,6 @@ class SelectConstructor {
 	}
 }
 // Запускаем и добавляем в объект модулей
-flsModules.select = new SelectConstructor({});
+window.constructorSelect = new SelectConstructor({});
 
 

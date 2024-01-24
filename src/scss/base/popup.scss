@@ -89,6 +89,7 @@ body::after {
    // .popup__close
 
    &__close {
+      outline: none;
       width: 22px;
       height: 22px;
 

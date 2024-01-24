@@ -56,7 +56,6 @@ class DynamicAdapt {
 		if (matchMedia.matches) {
 			оbjects.forEach((оbject) => {
 				// оbject.index = this.indexInParent(оbject.parent, оbject.element);
-				console.log(оbject);
 				this.moveTo(оbject.place, оbject.element, оbject.destination)
 			})
 		} else {
@@ -71,7 +70,6 @@ class DynamicAdapt {
 	moveTo(place, element, destination) {
 		element.classList.add(this.daClassname)
 		if (place === 'last' || place >= destination.children.length) {
-			console.log(destination);
 			destination.append(element)
 			return
 		}

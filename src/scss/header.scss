@@ -3,7 +3,7 @@
 // #region Header
 
 .header {
-	transition: all 0.3s;
+	transition: all 0.3s, padding-right 0s;
 	background: var(--bg-white);
 	position: relative;
 	z-index: 20;
@@ -189,7 +189,6 @@
 
 		@media (max-width:$tablet) {
 			align-self: center;
-			margin-bottom: rem(36);
 			flex-direction: column;
 			gap: 9px;
 		}

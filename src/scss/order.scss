@@ -91,7 +91,6 @@
 		}
 	}
 
-
 	// .order__total-bg
 
 	&__total-bg {
@@ -356,6 +355,10 @@
 
 		.order__block_place & {
 			margin-bottom: rem(10);
+		}
+
+		.order__block_addres & {
+			width: 100%;
 		}
 	}
 

@@ -74,7 +74,7 @@
          <div class="contacts__item contacts__item_place">
             <img src="@img/icons/icon-contact-place.svg" alt="">
             <span class="contacts__item-name">Местоположение</span>
-            <a href="tel:+73912999103" class="contacts__item-link">Красноярск, Кардачинская, 28</a>
+            <div class="contacts__item-link">Красноярск, Кардачинская, 28</div>
          </div>
       </div>
    </div>
@@ -96,21 +96,21 @@
             </div>
             <form action="" class="page-form__form form" data-parsley-validate="" data-parsley-trigger="change">
                <div class="form__line">
-                  <label for="pageFormUserName" class="form__label">Ваше имя *</label>
+                  <label for="pageFormUserName" class="form__label">Ваше имя</label>
                   <input required id="pageFormUserName" type="text" name="user" class="form__input">
                   <svg class="form__clear-svg">
                      <use xlink:href="img/icons/icons.svg#input_clear"></use>
                   </svg>
                </div>
                <div class="form__line">
-                  <label for="pageFormUserPhone" class="form__label">Контактный телефон *</label>
+                  <label for="pageFormUserPhone" class="form__label">Контактный телефон</label>
                   <input required id="pageFormUserPhone" type="tel" name="tel" class="form__input js_phone">
                   <svg class="form__clear-svg">
                      <use xlink:href="img/icons/icons.svg#input_clear"></use>
                   </svg>
                </div>
                <div class="form__line">
-                  <label for="pageFormUserMail" class="form__label">E-mail *</label>
+                  <label for="pageFormUserMail" class="form__label">E-mail</label>
                   <input required id="pageFormUserMail" type="email" name="mail" class="form__input">
                   <svg class="form__clear-svg">
                      <use xlink:href="img/icons/icons.svg#input_clear"></use>
@@ -118,7 +118,7 @@
                </div>
                <div class="form__line">
                   <label for="pageFormUserText" class="form__label">Комментарий</label>
-                  <textarea id="pageFormUserText" autocomplete="off" name="" placeholder="" class="form__txt"></textarea>
+                  <textarea required id="pageFormUserText" autocomplete="off" name="" placeholder="" class="form__txt"></textarea>
                   <svg class="form__clear-svg">
                      <use xlink:href="img/icons/icons.svg#input_clear"></use>
                   </svg>
