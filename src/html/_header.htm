@@ -13,9 +13,44 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+	<style>
+		.preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 100000;
+			background-color: #fff;
+			transition: all 0.3s ease 0s;
+
+		}
+
+		.preloader .hide {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.loaded body .preloader {
+			opacity: 0;
+			visibility: hidden;
+		}
+	</style>
 </head>
 
 <body>
+	<div class="preloader"><img src="img/loader.gif" alt=""></div>
+	<script>
+		if (sessionStorage.getItem('preloader') === 'hide') {
+			document.querySelector('.preloader').style.cssText = 'opacity: 0; visibility: hidden;';
+		} else {
+			document.querySelector('.preloader').style.cssText = '';
+			sessionStorage.setItem('preloader', 'hide');
+		}
+	</script>
 	<div class="wrapper @@modifierClass">
 		<header class="header" data-scroll="300" data-lp>
 			<div class="header__container">

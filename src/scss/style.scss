@@ -98,6 +98,10 @@ body {
 	>* {
 		min-width: 0;
 	}
+
+	.sidebar-catalog-open & {
+		cursor: url(../img/icons/icon-close-modal.svg) 14 14, move;
+	}
 }
 
 .page {
@@ -105,6 +109,10 @@ body {
 
 	@media (max-width:$tablet) {
 		padding-top: rem(25);
+	}
+
+	.sidebar-catalog-open & {
+		pointer-events: none
 	}
 }
 

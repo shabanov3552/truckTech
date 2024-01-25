@@ -204,6 +204,10 @@
 	&__main {
 		grid-column: 1/2;
 		grid-row-start: 1;
+
+		@media (max-width:$laptop) {
+			margin-bottom: rem(30);
+		}
 	}
 
 	// .order__basket
@@ -317,6 +321,8 @@
 		&_bottom {
 			.order__row {
 				align-items: center;
+
+				@media (max-width:$mobile) {}
 			}
 		}
 	}
@@ -411,6 +417,8 @@
 
 	&__button {
 		min-width: 320px;
+		display: block;
+		text-align: center;
 
 		@media (max-width:$mobile) {
 			margin-bottom: rem(25);

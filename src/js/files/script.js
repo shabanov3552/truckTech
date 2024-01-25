@@ -23,6 +23,10 @@ document.addEventListener("click", function (e) {
       bodyLockToggle();
       document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
    }
+   if (!e.target.closest('.sidebar-catalog') && document.querySelector('.sidebar-catalog-open') && !e.target.closest('.js-open-sidebar-catalog')) {
+      bodyLockToggle();
+      document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
+   }
    // очистка input по клику на крестик
    if (e.target.closest('.form__clear-svg')) {
       let input = e.target.closest('.form__line').querySelector('.form__input') || e.target.closest('.form__line').querySelector('.form__txt');

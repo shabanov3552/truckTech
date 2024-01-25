@@ -19,6 +19,7 @@ body::after {
 }
 
 .popup {
+   cursor: url(../img/icons/icon-close-modal.svg) 14 14, move;
    position: fixed;
    top: 0;
    left: 0;
@@ -54,6 +55,7 @@ body::after {
    // .popup__content
 
    &__content {
+      cursor: auto;
       visibility: hidden;
       transform: translate(120%, 0px);
       transition: all 0.6s ease 0s;
@@ -92,6 +94,7 @@ body::after {
       outline: none;
       width: 22px;
       height: 22px;
+      flex: 0 0 22px;
 
       svg {
          height: 100%;
@@ -135,6 +138,15 @@ body::after {
          padding-bottom: rem(21);
       }
 
+      @media (max-width:$mobileSmall) {
+
+         #policy &,
+         #consent & {
+            padding-left: rem(10);
+            padding-right: rem(15);
+         }
+      }
+
       .video-popup &,
       .basket-empty & {
          justify-content: flex-end;
@@ -162,6 +174,14 @@ body::after {
       @media (max-width:$mobile) {
          font-size: 25px;
       }
+
+      @media (max-width:$mobileSmall) {
+
+         #policy &,
+         #consent & {
+            font-size: 20px;
+         }
+      }
    }
 
    // .popup__main
@@ -170,6 +190,12 @@ body::after {
       padding: rem(24) rem(60) rem(50);
       overflow: auto;
       height: calc(100% - 121px);
+
+      #policy &,
+      #consent & {
+         height: calc(100% - 153px);
+         @extend %hidescroll;
+      }
 
       #thanks & {
          display: flex;
@@ -579,6 +605,7 @@ body::after {
       font-size: 20px;
       font-weight: 400;
       white-space: nowrap;
+      text-decoration: line-through;
    }
 
    // .basket-card__price-total

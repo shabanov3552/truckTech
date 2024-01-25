@@ -72,6 +72,39 @@
 
 	&__slider {
 		min-width: 0;
+		position: relative;
+
+		.hit &,
+		.sale &,
+		.new & {
+			&::before {
+				content: '';
+				position: absolute;
+				top: -1px;
+				left: -1px;
+				width: 61px;
+				height: 61px;
+				z-index: 10;
+			}
+		}
+
+		.hit & {
+			&::before {
+				background: url(../img/label-hit.svg);
+			}
+		}
+
+		.sale & {
+			&::before {
+				background: url(../img/label-sale.svg);
+			}
+		}
+
+		.new & {
+			&::before {
+				background: url(../img/label-new.svg);
+			}
+		}
 
 		@media (max-width:$mobile) {
 			grid-row: 1/2;

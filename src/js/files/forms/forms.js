@@ -106,6 +106,11 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 	});
 	// Если включено, добавляем функционал "Показать пароль"
 	if (options.viewPass) {
+		const passInputs = document.querySelectorAll('[type="password"]');
+		passInputs.forEach(input => {
+			input.insertAdjacentHTML('afterend', '<div class="form__viewpass"></div>')
+			console.log(input.parentElement.querySelector('#yandex-passman-key'));
+		});
 		document.addEventListener("click", function (e) {
 			let targetElement = e.target;
 			if (targetElement.closest('[class*="__viewpass"]')) {

@@ -3290,6 +3290,13 @@
                 return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
             }
         };
+        function addLoadedClass() {
+            if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
+                setTimeout((function() {
+                    document.documentElement.classList.add("loaded");
+                }), 0);
+            }));
+        }
         function functions_getHash() {
             if (location.hash) return location.hash.replace("#", "");
         }
@@ -3984,7 +3991,10 @@
             }
             _focusTrap() {
                 const focusable = this.previousOpen.element.querySelectorAll(this._focusEl);
-                if (!this.isOpen && this.lastFocusEl) this.lastFocusEl.focus(); else focusable[0].focus();
+                if (!this.isOpen && this.lastFocusEl) this.lastFocusEl.focus(); else {
+                    let focusElement = this.targetOpen.element.querySelector("input") || focusable[0];
+                    focusElement.focus();
+                }
             }
             popupLogging(message) {
                 this.options.logging ? functions_FLS(`[Попапос]: ${message}`) : null;
@@ -4058,14 +4068,21 @@
                     if (targetElement.hasAttribute("data-validate")) formValidate.validateInput(targetElement);
                 }
             }));
-            if (options.viewPass) document.addEventListener("click", (function(e) {
-                let targetElement = e.target;
-                if (targetElement.closest('[class*="__viewpass"]')) {
-                    let inputType = targetElement.classList.contains("_viewpass-active") ? "password" : "text";
-                    targetElement.parentElement.querySelector("input").setAttribute("type", inputType);
-                    targetElement.classList.toggle("_viewpass-active");
-                }
-            }));
+            if (options.viewPass) {
+                const passInputs = document.querySelectorAll('[type="password"]');
+                passInputs.forEach((input => {
+                    input.insertAdjacentHTML("afterend", '<div class="form__viewpass"></div>');
+                    console.log(input.parentElement.querySelector("#yandex-passman-key"));
+                }));
+                document.addEventListener("click", (function(e) {
+                    let targetElement = e.target;
+                    if (targetElement.closest('[class*="__viewpass"]')) {
+                        let inputType = targetElement.classList.contains("_viewpass-active") ? "password" : "text";
+                        targetElement.parentElement.querySelector("input").setAttribute("type", inputType);
+                        targetElement.classList.toggle("_viewpass-active");
+                    }
+                }));
+            }
             if (options.autoHeight) setTimeout((() => {
                 const textareas = document.querySelectorAll("textarea[data-autoheight]");
                 if (textareas.length) {
@@ -8223,7 +8240,88 @@
             render
         });
         const tippy_esm = tippy;
-        modules_flsModules.tippy = tippy_esm("[data-tippy-content]", {});
+        modules_flsModules.tippy = tippy_esm("[data-tippy-content]", {
+            placement: "right-end"
+        });
+        const breakpoint = window.matchMedia("(max-width: 768px)");
+        const breakpointChecker = () => {
+            if (breakpoint.matches) for (let i = 0; i < modules_flsModules.tippy.length; i++) modules_flsModules.tippy[i].setProps({
+                placement: "top"
+            }); else for (let i = 0; i < modules_flsModules.tippy.length; i++) modules_flsModules.tippy[i].setProps({
+                placement: "right-end"
+            });
+        };
+        breakpoint.addEventListener("change", breakpointChecker);
+        breakpointChecker();
+        class CustomTippy {
+            constructor(node, text, activeText) {
+                this.node = node;
+                this.text = text;
+                this.activeText = activeText;
+                this.tippyItem = tippy_esm(this.node);
+                this.isMobile = isMobile.any();
+                this.breakpoint = null;
+            }
+            initTippy() {
+                this.tippyItem.setContent(`Добавить в ${this.text}`);
+                let observer = new MutationObserver((records => {
+                    records[0].target.classList.forEach((item => {
+                        item == "_active" ? this.tippyItem.setContent(`Удалить из ${this.activeText}`) : this.tippyItem.setContent(`Добавить в ${this.text}`);
+                    }));
+                }));
+                observer.observe(this.node, {
+                    subtree: true,
+                    attributes: true
+                });
+                this.breakpointCheck();
+                this.node.addEventListener("click", (e => {
+                    this.createMobileTippy(e);
+                }));
+            }
+            breakpointCheck() {
+                const breakpoint = window.matchMedia("(max-width: 768px)");
+                const breakpointChecker = () => {
+                    if (breakpoint.matches) {
+                        this.breakpoint = true;
+                        this.tippyItem.disable();
+                    } else {
+                        this.breakpoint = false;
+                        this.tippyItem.enable();
+                    }
+                };
+                breakpoint.addEventListener("change", breakpointChecker);
+                breakpointChecker();
+            }
+            createMobileTippy(e) {
+                if (this.breakpoint) {
+                    let element = document.createElement("div");
+                    element.classList.add("action-notification");
+                    if (!this.node.classList.contains("_active")) element.insertAdjacentHTML("afterbegin", `\n\t\t\t\t<p>Товар добавлен в ${this.text}</p>\n\t\t\t`); else element.insertAdjacentHTML("afterbegin", `\n\t\t\t\t<p>Товар удален из ${this.activeText}</p>\n\t\t\t`);
+                    document.querySelector(".wrapper").insertAdjacentElement("afterend", element);
+                    setTimeout((() => {
+                        element.classList.add("show");
+                        setTimeout((() => {
+                            element.classList.remove("show");
+                            element.remove();
+                        }), 2e3);
+                    }), 100);
+                }
+            }
+        }
+        const favorButtons = document.querySelectorAll(".product-card__btn-favorites");
+        favorButtons.forEach((element => {
+            let tip = new CustomTippy(element, "избранное", "избранного");
+            tip.initTippy();
+        }));
+        const favorBasketButtons = document.querySelectorAll(".basket-card__favor");
+        favorBasketButtons.forEach((element => {
+            let tip = new CustomTippy(element, "избранное", "избранного");
+            tip.initTippy();
+        }));
+        if (document.querySelector(".product")) {
+            let productFavorTippy = new CustomTippy(document.querySelector(".product__btn-favorites"), "избранное", "избранного");
+            productFavorTippy.initTippy();
+        }
         function isObject(obj) {
             return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
@@ -15342,6 +15440,10 @@ PERFORMANCE OF THIS SOFTWARE.
                 bodyLockToggle();
                 document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
             }
+            if (!e.target.closest(".sidebar-catalog") && document.querySelector(".sidebar-catalog-open") && !e.target.closest(".js-open-sidebar-catalog")) {
+                bodyLockToggle();
+                document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
+            }
             if (e.target.closest(".form__clear-svg")) {
                 let input = e.target.closest(".form__line").querySelector(".form__input") || e.target.closest(".form__line").querySelector(".form__txt");
                 input.value = "";
@@ -15512,12 +15614,13 @@ PERFORMANCE OF THIS SOFTWARE.
         }
         window["FLS"] = false;
         isWebp();
+        addLoadedClass();
         menuInit();
         spollers();
         tabs();
         showMore();
         formFieldsInit({
-            viewPass: false,
+            viewPass: true,
             autoHeight: false
         });
         formQuantity();

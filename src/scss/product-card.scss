@@ -34,7 +34,8 @@
    }
 
    &.hit,
-   &.sale {
+   &.sale,
+   &.new {
       &::before {
          content: '';
          position: absolute;
@@ -55,6 +56,12 @@
    &.sale {
       &::before {
          background: url(../img/label-sale.svg);
+      }
+   }
+
+   &.new {
+      &::before {
+         background: url(../img/label-new.svg);
       }
    }
 

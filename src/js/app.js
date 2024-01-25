@@ -34,7 +34,7 @@ flsFunctions.isWebp();
 /* Добавление класса touch для HTML если браузер мобильный */
 // flsFunctions.addTouchClass();
 /* Добавление loaded для HTML после полной загрузки страницы */
-// flsFunctions.addLoadedClass();
+flsFunctions.addLoadedClass();
 /* Модуль для работы с меню (Бургер) */
 flsFunctions.menuInit();
 /* Учет плавающей панели на мобильных устройствах при 100vh */
@@ -99,7 +99,7 @@ import * as flsForms from "./files/forms/forms.js";
 /* Документация: https://template.fls.guru/template-docs/rabota-s-formami.html */
 
 flsForms.formFieldsInit({
-	viewPass: false,
+	viewPass: true,
 	autoHeight: false
 });
 

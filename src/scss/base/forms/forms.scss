@@ -63,12 +63,39 @@
 
 	&__input {}
 
+	input::-webkit-passman-key {
+		display: none;
+		width: 0;
+	}
+
 	// .form__txt
 
 	&__txt {
 		min-height: 87px;
 	}
 
+	&__viewpass {
+		width: 25px;
+		height: 23px;
+		background: url(../img/icons/pass.svg);
+		position: absolute;
+		right: 40px;
+		top: 12px;
+		cursor: pointer;
+		opacity: 0;
+
+		&._viewpass-active {
+			background: url(../img/icons/pass-active.svg);
+		}
+
+		._form-focus & {
+			opacity: 0.3;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
 
 	// .form__clear-svg
 
@@ -136,11 +163,12 @@
 
 	&__link {
 		font-size: 16px;
-		line-height: 24px;
-		text-decoration: underline dotted;
+		line-height: 21px;
+		border-bottom: 1px dashed black;
+		justify-self: start;
 
 		&:hover {
-			text-decoration: none;
+			border-bottom: 1px dashed transparent;
 		}
 	}
 
@@ -151,6 +179,51 @@
 	padding: rem(10) 0;
 	color: var(--red-main);
 	margin-bottom: rem(-20);
+}
+
+.form__dropdown-inner {
+	color: #000;
+	border-radius: 0 0 4px 4px;
+	min-width: 100%;
+	left: 0;
+	background-color: #fff;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, .230742);
+	-webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .4);
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .4);
+}
+
+.form__dropdown-inner.empty {
+	display: none;
+}
+
+.form__dropdown-item {
+	padding: 10px;
+}
+
+.form__dropdown-item:hover {
+	background: #d9d9d9;
+	cursor: pointer;
+}
+
+.icon-success {
+	position: absolute;
+	left: 16px;
+	width: 21px;
+	height: 21px;
+	background-size: contain;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjEgMjEiPjxzdHlsZT4uc3Qwe2ZpbGw6IzcxYmEyNH08L3N0eWxlPjxwYXRoIGlkPSJGb3JtYV8xIiBjbGFzcz0ic3QwIiBkPSJNMTAuNSAwQzQuNyAwIDAgNC43IDAgMTAuNVM0LjcgMjEgMTAuNSAyMSAyMSAxNi4zIDIxIDEwLjUgMTYuMyAwIDEwLjUgMHpNOSAxNS40bC01LTQuOSAyLTIgMyAzIDYtNS45IDIgMi04IDcuOHoiLz48L3N2Zz4=);
+}
+
+.alert-success {
+	color: #71ba24;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.error-text {
+	display: none !important;
 }
 
 //</FORM>
