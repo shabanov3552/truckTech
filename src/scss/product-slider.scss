@@ -15,7 +15,11 @@
 
    // .product-slider__container
 
-   &__container {}
+   &__container {
+      .detail-product & {
+         padding: 0;
+      }
+   }
 
    // .product-slider__header
 
@@ -50,13 +54,13 @@
    &__nav-btns {
       display: grid;
       grid-template-columns: 63px 118px;
-      height: 63px;
       gap: 20px;
    }
 
    // .product-slider__swiper-button
 
    &__swiper-button {
+      height: 63px;
       display: flex;
       justify-content: center;
       align-items: center;

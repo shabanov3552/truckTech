@@ -139,12 +139,8 @@ body::after {
       }
 
       @media (max-width:$mobileSmall) {
-
-         #policy &,
-         #consent & {
-            padding-left: rem(10);
-            padding-right: rem(15);
-         }
+         padding-left: rem(10);
+         padding-right: rem(15);
       }
 
       .video-popup &,
@@ -280,6 +276,10 @@ body::after {
 
       .popup-basket.basket-empty & {
          max-width: 336px;
+
+         @media (max-width:$mobileSmall) {
+            max-width: 100%;
+         }
       }
    }
 
@@ -556,6 +556,7 @@ body::after {
       font-size: 16px;
       margin-bottom: rem(16);
       display: block;
+      overflow-wrap: anywhere;
    }
 
    // .basket-card__bottom
@@ -704,6 +705,9 @@ body::after {
    // .basket-price__button
 
    &__button {
+      display: block;
+      text-align: center;
+
       @media (max-width:$mobile) {
          width: 100%;
       }
@@ -986,6 +990,13 @@ body::after {
       width: 100%;
       max-width: 505px;
    }
+}
+
+.search-result__price-old {
+   text-decoration: line-through;
+   color: #7E7E7E;
+   font-size: 16px;
+   margin-top: 7px;
 }
 
 // #endregion

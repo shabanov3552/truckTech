@@ -314,6 +314,18 @@
 					gap: 13px;
 				}
 			}
+
+			.order__line {
+				width: 100%;
+
+				textarea {
+					resize: vertical;
+
+					&::-webkit-scrollbar {
+						display: none;
+					}
+				}
+			}
 		}
 
 		// .order__block_bottom

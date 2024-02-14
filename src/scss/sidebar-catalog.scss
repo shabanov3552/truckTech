@@ -401,6 +401,10 @@
          }
       }
 
+      @media (max-width:$mobileSmall) {
+         gap: 15px;
+      }
+
       &:hover {
 
          .sidebar-catalog__link-svg {

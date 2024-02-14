@@ -98,9 +98,13 @@
 
 	&__cards {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(262px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 		@include adaptiveValue("margin-bottom", 100, 30);
 		gap: 40px 0px;
+
+		@media (min-width:em(1920.98)) {
+			grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+		}
 
 		@media (max-width: em(590)) {
 			gap: 0;
@@ -194,7 +198,7 @@
 		line-height: 21px;
 		text-decoration: underline 1px dashed #000;
 		padding-left: rem(19);
-		display: block;
+		// display: block;
 		width: 100%;
 		text-align: left;
 		position: relative;

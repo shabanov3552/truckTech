@@ -223,7 +223,18 @@
 }
 
 .error-text {
-	display: none !important;
+	padding: .625rem 0;
+	color: var(--red-main);
+	margin-bottom: -1.25rem;
+	font-size: 16px;
+
+	.popup & {
+		display: block;
+	}
+
+	#callback & {
+		display: none !important;
+	}
 }
 
 //</FORM>

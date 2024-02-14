@@ -1,6 +1,6 @@
 (() => {
     var __webpack_modules__ = {
-        125: function(module) {
+        232: function(module) {
             /*!
  * dist/inputmask.min
  * https://github.com/RobinHerbots/Inputmask
@@ -3596,11 +3596,14 @@
                 }
             }));
         }
-        function showMore() {
-            window.addEventListener("load", (function(e) {
-                const showMoreBlocks = document.querySelectorAll("[data-showmore]");
-                let showMoreBlocksRegular;
-                let mdQueriesArray;
+        function showMore(targetBlocks) {
+            let showMoreBlocks;
+            let showMoreBlocksRegular;
+            let mdQueriesArray;
+            if (targetBlocks) targetBlocks.forEach((targetBlock => {
+                initItem(targetBlock);
+            })); else window.addEventListener("load", (e => {
+                showMoreBlocks = document.querySelectorAll("[data-showmore]");
                 if (showMoreBlocks.length) {
                     showMoreBlocksRegular = Array.from(showMoreBlocks).filter((function(item, index, self) {
                         return !item.dataset.showmoreMedia;
@@ -3618,90 +3621,96 @@
                         initItemsMedia(mdQueriesArray);
                     }
                 }
-                function initItemsMedia(mdQueriesArray) {
-                    mdQueriesArray.forEach((mdQueriesItem => {
-                        initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-                    }));
-                }
-                function initItems(showMoreBlocks, matchMedia) {
-                    showMoreBlocks.forEach((showMoreBlock => {
-                        initItem(showMoreBlock, matchMedia);
-                    }));
-                }
-                function initItem(showMoreBlock, matchMedia = false) {
-                    showMoreBlock = matchMedia ? showMoreBlock.item : showMoreBlock;
-                    let showMoreContent = showMoreBlock.querySelectorAll("[data-showmore-content]");
-                    let showMoreButton = showMoreBlock.querySelectorAll("[data-showmore-button]");
-                    showMoreContent = Array.from(showMoreContent).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
-                    showMoreButton = Array.from(showMoreButton).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
-                    const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
-                    if (matchMedia.matches || !matchMedia) if (hiddenHeight < getOriginalHeight(showMoreContent)) {
-                        _slideUp(showMoreContent, 0, showMoreBlock.classList.contains("_showmore-active") ? getOriginalHeight(showMoreContent) : hiddenHeight);
-                        showMoreButton.hidden = false;
-                    } else {
-                        _slideDown(showMoreContent, 0, hiddenHeight);
-                        showMoreButton.hidden = true;
-                    } else {
-                        _slideDown(showMoreContent, 0, hiddenHeight);
-                        showMoreButton.hidden = true;
-                    }
-                }
-                function getHeight(showMoreBlock, showMoreContent) {
-                    let hiddenHeight = 0;
-                    const showMoreType = showMoreBlock.dataset.showmore ? showMoreBlock.dataset.showmore : "size";
-                    const rowGap = parseFloat(getComputedStyle(showMoreContent).rowGap) ? parseFloat(getComputedStyle(showMoreContent).rowGap) : 0;
-                    if (showMoreType === "items") {
-                        const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 3;
-                        const showMoreItems = showMoreContent.children;
-                        for (let index = 1; index < showMoreItems.length; index++) {
-                            const showMoreItem = showMoreItems[index - 1];
-                            const marginTop = parseFloat(getComputedStyle(showMoreItem).marginTop) ? parseFloat(getComputedStyle(showMoreItem).marginTop) : 0;
-                            const marginBottom = parseFloat(getComputedStyle(showMoreItem).marginBottom) ? parseFloat(getComputedStyle(showMoreItem).marginBottom) : 0;
-                            hiddenHeight += showMoreItem.offsetHeight + marginTop;
-                            if (index == showMoreTypeValue) break;
-                            hiddenHeight += marginBottom;
-                        }
-                        rowGap ? hiddenHeight += (showMoreTypeValue - 1) * rowGap : null;
-                    } else {
-                        const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 150;
-                        hiddenHeight = showMoreTypeValue;
-                    }
-                    return hiddenHeight;
-                }
-                function getOriginalHeight(showMoreContent) {
-                    let parentHidden;
-                    let hiddenHeight = showMoreContent.offsetHeight;
-                    showMoreContent.style.removeProperty("height");
-                    if (showMoreContent.closest(`[hidden]`)) {
-                        parentHidden = showMoreContent.closest(`[hidden]`);
-                        parentHidden.hidden = false;
-                    }
-                    let originalHeight = showMoreContent.offsetHeight;
-                    parentHidden ? parentHidden.hidden = true : null;
-                    showMoreContent.style.height = `${hiddenHeight}px`;
-                    return originalHeight;
-                }
-                function showMoreActions(e) {
-                    const targetEvent = e.target;
-                    const targetType = e.type;
-                    if (targetType === "click") {
-                        if (targetEvent.closest("[data-showmore-button]")) {
-                            const showMoreButton = targetEvent.closest("[data-showmore-button]");
-                            const showMoreBlock = showMoreButton.closest("[data-showmore]");
-                            const showMoreContent = showMoreBlock.querySelector("[data-showmore-content]");
-                            const showMoreSpeed = showMoreBlock.dataset.showmoreButton ? showMoreBlock.dataset.showmoreButton : "500";
-                            const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
-                            if (!showMoreContent.classList.contains("_slide")) {
-                                showMoreBlock.classList.contains("_showmore-active") ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
-                                showMoreBlock.classList.toggle("_showmore-active");
-                            }
-                        }
-                    } else if (targetType === "resize") {
-                        showMoreBlocksRegular && showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
-                        mdQueriesArray && mdQueriesArray.length ? initItemsMedia(mdQueriesArray) : null;
-                    }
-                }
             }));
+            function initItemsMedia(mdQueriesArray) {
+                mdQueriesArray.forEach((mdQueriesItem => {
+                    initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                }));
+            }
+            function initItems(showMoreBlocks, matchMedia) {
+                showMoreBlocks.forEach((showMoreBlock => {
+                    initItem(showMoreBlock, matchMedia);
+                }));
+            }
+            function initItem(showMoreBlock, matchMedia = false) {
+                showMoreBlock = matchMedia ? showMoreBlock.item : showMoreBlock;
+                showMoreBlock.classList.add("_show-more-init");
+                let showMoreContent = showMoreBlock.querySelectorAll("[data-showmore-content]");
+                let showMoreButton = showMoreBlock.querySelectorAll("[data-showmore-button]");
+                showMoreContent = Array.from(showMoreContent).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
+                showMoreButton = Array.from(showMoreButton).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
+                const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
+                if (!showMoreContent.closest("._showmore-active")) if (matchMedia.matches || !matchMedia) if (hiddenHeight < getOriginalHeight(showMoreContent)) {
+                    _slideUp(showMoreContent, 0, hiddenHeight);
+                    showMoreButton.hidden = false;
+                } else {
+                    _slideDown(showMoreContent, 0, hiddenHeight);
+                    showMoreButton.hidden = true;
+                } else {
+                    _slideDown(showMoreContent, 0, hiddenHeight);
+                    showMoreButton.hidden = true;
+                } else if (showMoreContent.closest("._showmore-active") && !(matchMedia.matches || !matchMedia)) showMoreButton.hidden = true; else if (showMoreContent.closest("._showmore-active") && (matchMedia.matches || !matchMedia)) showMoreButton.hidden = false;
+            }
+            function getHeight(showMoreBlock, showMoreContent) {
+                let hiddenHeight = 0;
+                const showMoreType = showMoreBlock.dataset.showmore ? showMoreBlock.dataset.showmore : "size";
+                if (showMoreType === "items") {
+                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 3;
+                    const showMoreItems = showMoreContent.children;
+                    if (showMoreContent.children.length <= showMoreTypeValue) return;
+                    for (let index = 1; index < showMoreItems.length; index++) {
+                        const showMoreItem = showMoreItems[index - 1];
+                        hiddenHeight += showMoreItem.offsetHeight;
+                        if (index == showMoreTypeValue) break;
+                    }
+                } else if (showMoreType === "parag") {
+                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 2;
+                    const showMoreItems = showMoreContent.children;
+                    if (showMoreContent.children.length <= showMoreTypeValue) return;
+                    for (let index = 1; index < showMoreItems.length; index++) {
+                        const showMoreItem = showMoreItems[index - 1];
+                        hiddenHeight += showMoreItem.offsetHeight;
+                        if (index == showMoreTypeValue) break;
+                    }
+                } else {
+                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 150;
+                    hiddenHeight = showMoreTypeValue;
+                }
+                return hiddenHeight;
+            }
+            function getOriginalHeight(showMoreContent) {
+                let parentHidden;
+                let hiddenHeight = showMoreContent.offsetHeight;
+                showMoreContent.style.removeProperty("height");
+                if (showMoreContent.closest(`[hidden]`)) {
+                    parentHidden = showMoreContent.closest(`[hidden]`);
+                    parentHidden.hidden = false;
+                }
+                let originalHeight = showMoreContent.offsetHeight;
+                parentHidden ? parentHidden.hidden = true : null;
+                showMoreContent.style.height = `${hiddenHeight}px`;
+                return originalHeight;
+            }
+            function showMoreActions(e) {
+                const targetEvent = e.target;
+                const targetType = e.type;
+                if (targetType === "click") {
+                    if (targetEvent.closest("[data-showmore-button]")) {
+                        const showMoreButton = targetEvent.closest("[data-showmore-button]");
+                        const showMoreBlock = showMoreButton.closest("[data-showmore]");
+                        const showMoreContent = showMoreBlock.querySelector("[data-showmore-content]");
+                        const showMoreSpeed = showMoreBlock.dataset.showmoreButton ? showMoreBlock.dataset.showmoreButton : "500";
+                        const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
+                        if (!showMoreContent.classList.contains("_slide")) {
+                            showMoreBlock.classList.contains("_showmore-active") ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
+                            showMoreBlock.classList.toggle("_showmore-active");
+                        }
+                    }
+                } else if (targetType === "resize") {
+                    showMoreBlocksRegular && showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
+                    mdQueriesArray && mdQueriesArray.length ? initItemsMedia(mdQueriesArray) : null;
+                }
+            }
         }
         function functions_FLS(message) {
             setTimeout((() => {
@@ -4072,7 +4081,6 @@
                 const passInputs = document.querySelectorAll('[type="password"]');
                 passInputs.forEach((input => {
                     input.insertAdjacentHTML("afterend", '<div class="form__viewpass"></div>');
-                    console.log(input.parentElement.querySelector("#yandex-passman-key"));
                 }));
                 document.addEventListener("click", (function(e) {
                     let targetElement = e.target;
@@ -4552,7 +4560,7 @@
             }
         }
         window.constructorSelect = new SelectConstructor({});
-        __webpack_require__(125);
+        __webpack_require__(232);
         const inputMasks = document.querySelectorAll("input");
         if (inputMasks.length) modules_flsModules.inputmask = Inputmask().mask(inputMasks);
         var PipsMode;
@@ -8628,6 +8636,9 @@
             if (includeMargins) return el[size === "width" ? "offsetWidth" : "offsetHeight"] + parseFloat(window.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-right" : "margin-top")) + parseFloat(window.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-left" : "margin-bottom"));
             return el.offsetWidth;
         }
+        function utils_makeElementsArray(el) {
+            return (Array.isArray(el) ? el : [ el ]).filter((e => !!e));
+        }
         let support;
         function calcSupport() {
             const window = ssr_window_esm_getWindow();
@@ -8684,6 +8695,7 @@
         let browser;
         function calcBrowser() {
             const window = ssr_window_esm_getWindow();
+            const device = getDevice();
             let needPerspectiveFix = false;
             function isSafari() {
                 const ua = window.navigator.userAgent.toLowerCase();
@@ -8696,10 +8708,14 @@
                     needPerspectiveFix = major < 16 || major === 16 && minor < 2;
                 }
             }
+            const isWebView = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent);
+            const isSafariBrowser = isSafari();
+            const need3dFix = isSafariBrowser || isWebView && device.ios;
             return {
-                isSafari: needPerspectiveFix || isSafari(),
+                isSafari: needPerspectiveFix || isSafariBrowser,
                 needPerspectiveFix,
-                isWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent)
+                need3dFix,
+                isWebView
             };
         }
         function getBrowser() {
@@ -9092,6 +9108,7 @@
             }
             if (slidesGrid.length !== previousSlidesGridLength) swiper.emit("slidesGridLengthChange");
             if (params.watchSlidesProgress) swiper.updateSlidesOffset();
+            swiper.emit("slidesUpdated");
             if (!isVirtual && !params.cssMode && (params.effect === "slide" || params.effect === "fade")) {
                 const backFaceHiddenClass = `${params.containerModifierClass}backface-hidden`;
                 const hasClassBackfaceClassAdded = swiper.el.classList.contains(backFaceHiddenClass);
@@ -9567,7 +9584,7 @@
             let slideIndex = index;
             if (slideIndex < 0) slideIndex = 0;
             const {params, snapGrid, slidesGrid, previousIndex, activeIndex, rtlTranslate: rtl, wrapperEl, enabled} = swiper;
-            if (swiper.animating && params.preventInteractionOnTransition || !enabled && !internal && !initial) return false;
+            if (swiper.animating && params.preventInteractionOnTransition || !enabled && !internal && !initial || swiper.destroyed) return false;
             const skip = Math.min(swiper.params.slidesPerGroupSkip, slideIndex);
             let snapIndex = skip + Math.floor((slideIndex - skip) / swiper.params.slidesPerGroup);
             if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
@@ -9663,6 +9680,7 @@
                 index = indexAsNumber;
             }
             const swiper = this;
+            if (swiper.destroyed) return;
             const gridEnabled = swiper.grid && swiper.params.grid && swiper.params.grid.rows > 1;
             let newIndex = index;
             if (swiper.params.loop) if (swiper.virtual && swiper.params.virtual.enabled) newIndex += swiper.virtual.slidesBefore; else {
@@ -9704,7 +9722,7 @@
             if (runCallbacks === void 0) runCallbacks = true;
             const swiper = this;
             const {enabled, params, animating} = swiper;
-            if (!enabled) return swiper;
+            if (!enabled || swiper.destroyed) return swiper;
             let perGroup = params.slidesPerGroup;
             if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) perGroup = Math.max(swiper.slidesPerViewDynamic("current", true), 1);
             const increment = swiper.activeIndex < params.slidesPerGroupSkip ? 1 : perGroup;
@@ -9730,7 +9748,7 @@
             if (runCallbacks === void 0) runCallbacks = true;
             const swiper = this;
             const {params, snapGrid, slidesGrid, rtlTranslate, enabled, animating} = swiper;
-            if (!enabled) return swiper;
+            if (!enabled || swiper.destroyed) return swiper;
             const isVirtual = swiper.virtual && params.virtual.enabled;
             if (params.loop) {
                 if (animating && !isVirtual && params.loopPreventsSliding) return false;
@@ -9778,6 +9796,7 @@
             if (speed === void 0) speed = this.params.speed;
             if (runCallbacks === void 0) runCallbacks = true;
             const swiper = this;
+            if (swiper.destroyed) return;
             return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
         }
         function slideToClosest(speed, runCallbacks, internal, threshold) {
@@ -9785,6 +9804,7 @@
             if (runCallbacks === void 0) runCallbacks = true;
             if (threshold === void 0) threshold = .5;
             const swiper = this;
+            if (swiper.destroyed) return;
             let index = swiper.activeIndex;
             const skip = Math.min(swiper.params.slidesPerGroupSkip, index);
             const snapIndex = skip + Math.floor((index - skip) / swiper.params.slidesPerGroup);
@@ -9804,6 +9824,7 @@
         }
         function slideToClickedSlide() {
             const swiper = this;
+            if (swiper.destroyed) return;
             const {params, slidesEl} = swiper;
             const slidesPerView = params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : params.slidesPerView;
             let slideToIndex = swiper.clickedIndex;
@@ -10389,16 +10410,17 @@
                 });
                 return;
             }
+            const swipeToLast = currentPos >= -swiper.maxTranslate() && !swiper.params.loop;
             let stopIndex = 0;
             let groupSize = swiper.slidesSizesGrid[0];
             for (let i = 0; i < slidesGrid.length; i += i < params.slidesPerGroupSkip ? 1 : params.slidesPerGroup) {
                 const increment = i < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
                 if (typeof slidesGrid[i + increment] !== "undefined") {
-                    if (currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + increment]) {
+                    if (swipeToLast || currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + increment]) {
                         stopIndex = i;
                         groupSize = slidesGrid[i + increment] - slidesGrid[i];
                     }
-                } else if (currentPos >= slidesGrid[i]) {
+                } else if (swipeToLast || currentPos >= slidesGrid[i]) {
                     stopIndex = i;
                     groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
                 }
@@ -10715,6 +10737,7 @@
             init: true,
             direction: "horizontal",
             oneWayMovement: false,
+            swiperElementNodeName: "SWIPER-CONTAINER",
             touchEventsTarget: "wrapper",
             initialSlide: 0,
             speed: 300,
@@ -11037,10 +11060,10 @@
                 let spv = 1;
                 if (typeof params.slidesPerView === "number") return params.slidesPerView;
                 if (params.centeredSlides) {
-                    let slideSize = slides[activeIndex] ? slides[activeIndex].swiperSlideSize : 0;
+                    let slideSize = slides[activeIndex] ? Math.ceil(slides[activeIndex].swiperSlideSize) : 0;
                     let breakLoop;
                     for (let i = activeIndex + 1; i < slides.length; i += 1) if (slides[i] && !breakLoop) {
-                        slideSize += slides[i].swiperSlideSize;
+                        slideSize += Math.ceil(slides[i].swiperSlideSize);
                         spv += 1;
                         if (slideSize > swiperSize) breakLoop = true;
                     }
@@ -11129,7 +11152,7 @@
                 if (typeof el === "string") el = document.querySelector(el);
                 if (!el) return false;
                 el.swiper = swiper;
-                if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === "SWIPER-CONTAINER") swiper.isElement = true;
+                if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === swiper.params.swiperElementNodeName.toUpperCase()) swiper.isElement = true;
                 const getWrapperSelector = () => `.${(swiper.params.wrapperClass || "").trim().split(" ").join(".")}`;
                 const getWrapper = () => {
                     if (el && el.shadowRoot && el.shadowRoot.querySelector) {
@@ -11279,7 +11302,6 @@
                 nextEl: null,
                 prevEl: null
             };
-            const makeElementsArray = el => (Array.isArray(el) ? el : [ el ]).filter((e => !!e));
             function getEl(el) {
                 let res;
                 if (el && typeof el === "string" && swiper.isElement) {
@@ -11295,7 +11317,7 @@
             }
             function toggleEl(el, disabled) {
                 const params = swiper.params.navigation;
-                el = makeElementsArray(el);
+                el = utils_makeElementsArray(el);
                 el.forEach((subEl => {
                     if (subEl) {
                         subEl.classList[disabled ? "add" : "remove"](...params.disabledClass.split(" "));
@@ -11339,8 +11361,8 @@
                     nextEl,
                     prevEl
                 });
-                nextEl = makeElementsArray(nextEl);
-                prevEl = makeElementsArray(prevEl);
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
                 const initButton = (el, dir) => {
                     if (el) el.addEventListener("click", dir === "next" ? onNextClick : onPrevClick);
                     if (!swiper.enabled && el) el.classList.add(...params.lockClass.split(" "));
@@ -11350,8 +11372,8 @@
             }
             function destroy() {
                 let {nextEl, prevEl} = swiper.navigation;
-                nextEl = makeElementsArray(nextEl);
-                prevEl = makeElementsArray(prevEl);
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
                 const destroyButton = (el, dir) => {
                     el.removeEventListener("click", dir === "next" ? onNextClick : onPrevClick);
                     el.classList.remove(...swiper.params.navigation.disabledClass.split(" "));
@@ -11373,8 +11395,8 @@
             }));
             on("enable disable", (() => {
                 let {nextEl, prevEl} = swiper.navigation;
-                nextEl = makeElementsArray(nextEl);
-                prevEl = makeElementsArray(prevEl);
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
                 if (swiper.enabled) {
                     update();
                     return;
@@ -11383,8 +11405,8 @@
             }));
             on("click", ((_s, e) => {
                 let {nextEl, prevEl} = swiper.navigation;
-                nextEl = makeElementsArray(nextEl);
-                prevEl = makeElementsArray(prevEl);
+                nextEl = utils_makeElementsArray(nextEl);
+                prevEl = utils_makeElementsArray(prevEl);
                 const targetEl = e.target;
                 if (swiper.params.navigation.hideOnClick && !prevEl.includes(targetEl) && !nextEl.includes(targetEl)) {
                     if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
@@ -11455,7 +11477,6 @@
             };
             let bulletSize;
             let dynamicBulletIndex = 0;
-            const makeElementsArray = el => (Array.isArray(el) ? el : [ el ]).filter((e => !!e));
             function isPaginationDisabled() {
                 return !swiper.params.pagination.el || !swiper.pagination.el || Array.isArray(swiper.pagination.el) && swiper.pagination.el.length === 0;
             }
@@ -11484,7 +11505,7 @@
                 const params = swiper.params.pagination;
                 if (isPaginationDisabled()) return;
                 let el = swiper.pagination.el;
-                el = makeElementsArray(el);
+                el = utils_makeElementsArray(el);
                 let current;
                 let previousIndex;
                 const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
@@ -11588,7 +11609,7 @@
                 if (isPaginationDisabled()) return;
                 const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.grid && swiper.params.grid.rows > 1 ? swiper.slides.length / Math.ceil(swiper.params.grid.rows) : swiper.slides.length;
                 let el = swiper.pagination.el;
-                el = makeElementsArray(el);
+                el = utils_makeElementsArray(el);
                 let paginationHTML = "";
                 if (params.type === "bullets") {
                     let numberOfBullets = swiper.params.loop ? Math.ceil(slidesLength / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
@@ -11626,7 +11647,7 @@
                 Object.assign(swiper.pagination, {
                     el
                 });
-                el = makeElementsArray(el);
+                el = utils_makeElementsArray(el);
                 el.forEach((subEl => {
                     if (params.type === "bullets" && params.clickable) subEl.classList.add(...(params.clickableClass || "").split(" "));
                     subEl.classList.add(params.modifierClass + params.type);
@@ -11646,7 +11667,7 @@
                 if (isPaginationDisabled()) return;
                 let el = swiper.pagination.el;
                 if (el) {
-                    el = makeElementsArray(el);
+                    el = utils_makeElementsArray(el);
                     el.forEach((subEl => {
                         subEl.classList.remove(params.hiddenClass);
                         subEl.classList.remove(params.modifierClass + params.type);
@@ -11663,7 +11684,7 @@
                 if (!swiper.pagination || !swiper.pagination.el) return;
                 const params = swiper.params.pagination;
                 let {el} = swiper.pagination;
-                el = makeElementsArray(el);
+                el = utils_makeElementsArray(el);
                 el.forEach((subEl => {
                     subEl.classList.remove(params.horizontalClass, params.verticalClass);
                     subEl.classList.add(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
@@ -11692,7 +11713,7 @@
             on("enable disable", (() => {
                 let {el} = swiper.pagination;
                 if (el) {
-                    el = makeElementsArray(el);
+                    el = utils_makeElementsArray(el);
                     el.forEach((subEl => subEl.classList[swiper.enabled ? "remove" : "add"](swiper.params.pagination.lockClass)));
                 }
             }));
@@ -11701,7 +11722,7 @@
             }));
             on("click", ((_s, e) => {
                 const targetEl = e.target;
-                const el = makeElementsArray(swiper.pagination.el);
+                const el = utils_makeElementsArray(swiper.pagination.el);
                 if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && el && el.length > 0 && !targetEl.classList.contains(swiper.params.pagination.bulletClass)) {
                     if (swiper.navigation && (swiper.navigation.nextEl && targetEl === swiper.navigation.nextEl || swiper.navigation.prevEl && targetEl === swiper.navigation.prevEl)) return;
                     const isHidden = el[0].classList.contains(swiper.params.pagination.hiddenClass);
@@ -11713,7 +11734,7 @@
                 swiper.el.classList.remove(swiper.params.pagination.paginationDisabledClass);
                 let {el} = swiper.pagination;
                 if (el) {
-                    el = makeElementsArray(el);
+                    el = utils_makeElementsArray(el);
                     el.forEach((subEl => subEl.classList.remove(swiper.params.pagination.paginationDisabledClass)));
                 }
                 init();
@@ -11724,7 +11745,7 @@
                 swiper.el.classList.add(swiper.params.pagination.paginationDisabledClass);
                 let {el} = swiper.pagination;
                 if (el) {
-                    el = makeElementsArray(el);
+                    el = utils_makeElementsArray(el);
                     el.forEach((subEl => subEl.classList.add(swiper.params.pagination.paginationDisabledClass)));
                 }
                 destroy();

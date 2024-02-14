@@ -230,6 +230,10 @@
 		grid-template-columns: 126px 174px;
 		gap: 30px;
 
+		@media (max-width: em(374.98)) {
+			grid-template-columns: 1fr;
+		}
+
 		.quantity {
 			width: 100%;
 			background: var(--bg-white);

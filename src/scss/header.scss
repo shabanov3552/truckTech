@@ -280,6 +280,7 @@
 
 	&__nav-btn {
 		position: relative;
+		outline: none;
 
 		@media (min-width:$tablet) {
 			&:first-child {

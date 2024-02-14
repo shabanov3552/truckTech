@@ -231,6 +231,12 @@
       display: flex;
       gap: 26px;
 
+      @media (min-width:$laptop) {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         row-gap: 10px;
+      }
+
       .form__line {
          margin: 0;
       }
