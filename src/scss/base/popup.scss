@@ -557,6 +557,10 @@ body::after {
       margin-bottom: rem(16);
       display: block;
       overflow-wrap: anywhere;
+
+      @media (max-width: em(420)) {
+         min-height: 70px;
+      }
    }
 
    // .basket-card__bottom

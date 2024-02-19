@@ -203,17 +203,20 @@
          }
       }
 
-      &:hover {
-         img {
-            &:first-child {
-               display: none;
-            }
+      @media (any-hover:hover) {
+         &:hover {
+            img {
+               &:first-child {
+                  display: none;
+               }
 
-            &:last-child {
-               display: block;
+               &:last-child {
+                  display: block;
+               }
             }
          }
       }
+
 
       &._delete,
       &._active {
@@ -227,14 +230,16 @@
             }
          }
 
-         &:hover {
-            img {
-               &:first-child {
-                  display: block;
-               }
+         @media (any-hover:hover) {
+            &:hover {
+               img {
+                  &:first-child {
+                     display: block;
+                  }
 
-               &:last-child {
-                  display: none;
+                  &:last-child {
+                     display: none;
+                  }
                }
             }
          }

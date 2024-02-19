@@ -222,6 +222,16 @@
 	line-height: 20px;
 }
 
+.is-success .success-text,
+.is-loading .loading-text,
+.is-error .error-text {
+
+	.popup & {
+		display: block;
+		margin-top: 15px;
+	}
+}
+
 .error-text {
 	padding: .625rem 0;
 	color: var(--red-main);
@@ -231,6 +241,7 @@
 	.popup & {
 		display: block;
 	}
+
 
 	#callback & {
 		display: none !important;
