@@ -2,25 +2,26 @@
    border: 1px solid #ADADAD;
    position: relative;
    transition: all 0.3s ease 0s;
-   padding: rem(25) rem(14) rem(27) rem(25);
+   padding: rem(0) rem(0) rem(27) rem(0);
    display: flex;
    flex-direction: column;
    overflow: hidden;
+   border-radius: 20px;
 
-   &::after {
-      content: '';
-      transition: all 0.3s;
-      pointer-events: none;
-      position: absolute;
-      bottom: -5px;
-      right: -5px;
-      left: -1px;
-      height: 42px;
-      border-bottom: 3px solid var(--red-main);
-      background: var(--red-main);
-      clip-path: polygon(100% 0%, 100% 100%, calc(100% - 42px) 100%);
-      opacity: 0;
-   }
+   // &::after {
+   //    content: '';
+   //    transition: all 0.3s;
+   //    pointer-events: none;
+   //    position: absolute;
+   //    bottom: -5px;
+   //    right: -5px;
+   //    left: -1px;
+   //    height: 42px;
+   //    border-bottom: 3px solid var(--red-main);
+   //    background: var(--red-main);
+   //    clip-path: polygon(100% 0%, 100% 100%, calc(100% - 42px) 100%);
+   //    opacity: 0;
+   // }
 
    &:hover {
 
@@ -74,23 +75,21 @@
    &__link {
       flex: 1 1 auto;
       display: grid;
-      grid-template-rows: 1fr auto;
+      grid-template-rows: auto 1fr;
    }
 
    // .product-card__image-ibg
 
    &__image-ibg {
       flex: 1 1 auto;
-      height: 130px;
+      height: 240px;
       margin-bottom: rem(15);
       display: block;
 
       img {
-         object-position: left top;
-         max-width: 100%;
-         max-height: 100%;
-         width: auto;
-         height: auto;
+         object-position: top;
+         height: 100%;
+         width: 100%;
       }
 
       // .product-card__image-ibg_contain
@@ -100,11 +99,16 @@
 
    // .product-card__info
 
-   &__info {}
+   &__info {
+      display: flex;
+      flex-direction: column;
+      padding: rem(0) rem(20) rem(0) rem(20);
+   }
 
    // .product-card__name
 
    &__name {
+      flex: 1 1 auto;
       font-size: 16px;
       line-height: 24px;
       margin-bottom: rem(15);
@@ -149,9 +153,8 @@
    // .product-card__footer
 
    &__footer {
-      display: grid;
-      grid-template-columns: minmax(95px, 105px) minmax(120px, 140px);
-      gap: 18px;
+      display: block;
+      padding: rem(0) rem(20) rem(0) rem(20);
 
       &::after {
          content: '';
@@ -172,6 +175,7 @@
 
       .quantity {
          width: 100%;
+         display: none;
       }
    }
 

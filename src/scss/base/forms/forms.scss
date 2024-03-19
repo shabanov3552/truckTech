@@ -232,6 +232,10 @@
 	}
 }
 
+#forgot-pass .success-text {
+	color: var(--red-main);
+}
+
 .error-text {
 	padding: .625rem 0;
 	color: var(--red-main);
