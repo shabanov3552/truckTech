@@ -12296,7 +12296,7 @@
                 })
             });
         }
-        function initSliders() {
+        window.initSliders = function() {
             if (document.querySelector(".first-block__slider")) new swiper_core_Swiper(".first-block__slider", {
                 modules: [ Pagination, Autoplay ],
                 observer: true,
@@ -12442,7 +12442,7 @@
                     }
                 }));
             }
-        }
+        };
         window.addEventListener("load", (function(e) {
             initSliders();
         }));

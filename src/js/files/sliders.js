@@ -25,7 +25,7 @@ import "../../scss/base/swiper.scss";
 // import 'swiper/css';
 
 // Инициализация слайдеров
-function initSliders() {
+window.initSliders = function () {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
 	if (document.querySelector('.first-block__slider')) { // Указываем скласс нужного слайдера
