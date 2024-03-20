@@ -8,7 +8,7 @@
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation, Thumbs, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Thumbs, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -111,7 +111,7 @@ function initSliders() {
 				observer: true,
 				observeParents: true,
 				slidesPerView: 5,
-				spaceBetween: 0,
+				spaceBetween: 20,
 				speed: 300,
 				watchSlidesProgress: true,
 				loop: true,
@@ -274,6 +274,57 @@ function initSliders() {
 				vidos.closest('.main-prod__slide').classList.add('video-slide')
 				// vidos.parentElement.setAttribute("class", '')
 				mainProdSlider.thumbs.swiper.slides[index].classList.add('video-slide');
+			}
+		});
+	}
+	if (document.querySelector('.product-card__slider')) {
+		const sliders = document.querySelectorAll(".product-card__slider");
+
+		sliders.forEach((slider) => {
+			const popagination = slider.querySelector(".swiper-pagination");
+
+			var swiper = new Swiper(slider, {
+				modules: [Pagination, EffectFade],
+				slidesPerView: 1,
+				slidesPerGroup: 1,
+				loop: true,
+				effect: "fade",
+				pagination: {
+					el: popagination,
+				},
+				breakpoints: {
+					320: {
+						pagination: {
+							clickable: true,
+						},
+					},
+					1050: {
+						pagination: {
+							clickable: false,
+						},
+					},
+				},
+				on: {
+					init() {
+						setTimeout(updateFraction, 0, this);
+					},
+				},
+			});
+
+			function updateFraction(slider) {
+				const width = 100 / slider.slides.length;
+				popagination
+					.querySelectorAll(".swiper-pagination-bullet")
+					.forEach((el, index) => {
+						el.style.setProperty("--element-width", width + "%");
+						el.style.setProperty(
+							"--element-position",
+							width * index + "%"
+						);
+						el.addEventListener("mouseenter", () => {
+							slider.slideTo(index);
+						});
+					});
 			}
 		});
 	}
