@@ -137,6 +137,9 @@ window.initSliders = function () {
 					1640.98: {
 						slidesPerView: 5,
 					},
+					2099.98: {
+						slidesPerView: 6,
+					},
 				},
 				// autoHeight: true,
 				//touchRatio: 0,

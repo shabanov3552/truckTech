@@ -12350,6 +12350,9 @@
                             },
                             1640.98: {
                                 slidesPerView: 5
+                            },
+                            2099.98: {
+                                slidesPerView: 6
                             }
                         }
                     });

@@ -10,12 +10,12 @@
 
 	&__cards {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 		@include adaptiveValue("margin-bottom", 100, 30);
-		gap: 40px 0px;
+		gap: 40px 20px;
 
 		@media (max-width: em(590)) {
-			gap: 0;
+			gap: 20px;
 			grid-template-columns: 1fr;
 		}
 
